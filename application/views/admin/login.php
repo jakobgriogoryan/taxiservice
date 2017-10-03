@@ -61,7 +61,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
-    <form class="login-form" action=" <?= base_url()?>index.php/login/log_in" method="post">
+    <form class="login-form" action=" <?= base_url()?>admin/auth/login" method="post">
         <h3 class="form-title">Sign In</h3>
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
@@ -108,7 +108,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </form>
     <!-- END LOGIN FORM -->
     <!-- BEGIN FORGOT PASSWORD FORM -->
-    <form class="forget-form" action="<?= base_url().'index.php/login' ?>" method="post">
+    <form class="forget-form" action="<?= base_url().'/login' ?>" method="post">
         <h3>Forget Password ?</h3>
         <p>
             Enter your e-mail address below to reset your password.
@@ -123,7 +123,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </form>
     <!-- END FORGOT PASSWORD FORM -->
     <!-- BEGIN REGISTRATION FORM -->
-    <form class="register-form" action="<?= base_url()?>index.php/login" method="post">
+    <form class="register-form" action="<?= base_url()?>/login" method="post">
         <h3>Sign Up</h3>
         <p class="hint">
             Enter your personal details below:

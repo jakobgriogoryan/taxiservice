@@ -1,3 +1,5 @@
+</div>
+</div>
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
     <div class="page-footer-inner">
