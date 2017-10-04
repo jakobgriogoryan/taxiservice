@@ -1,17 +1,13 @@
 <?php
 
 class Roles_model extends CI_Model {
-    protected $table = 'admins';
+    protected $table = 'role';
 
-    public function registration($data){
 
-        $this->db->insert('admins', $data);
-    }
-
-    public function get_data(array $select = ['*'], array $where){
-        return $this->db
-            ->select($select)
-            ->where($where)
-            ->get($this->table);
+    public function selectAll(){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        return $query->result();
     }
 }

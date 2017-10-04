@@ -14,11 +14,6 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-        <!--                @if (session('status'))-->
-        <!--                <div class="alert alert-success">-->
-        <!--                    {{ session('status') }}-->
-        <!--                </div>-->
-        <!--                @endif-->
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-md-6">
@@ -43,7 +38,7 @@
                                     Phone
                                 </th>
                                 <th>
-                                    Username
+                                    Login
                                 </th>
                                 <th>
                                     Created At
@@ -55,19 +50,21 @@
                             </thead>
                             <tbody>
 
+                            <?php foreach($admins as $admin): ?>
                             <tr class="odd gradeX">
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?=$admin->role_id ?></td>
+                                <td><?=$admin->name ?><?=$admin->surname ?></td>
+                                <td><?=$admin->phone_number ?></td>
+                                <td><?=$admin->login ?></td>
+                                <td><?=$admin->create_at?></td>
                                 <td>
-                                    <a href="/admin/manage/admins/{{$admin->id}}/edit" title="Edit"><i class="fa fa-pencil"></i></a>
-                                    <a href="/admin/manage/admins/{{$admin->id}}/changePassword" title="Change Password"><i class="fa fa-cogs"></i></a>
-                                    <button title="Delete" type="submit"><i class="fa fa-remove"></i></button>
+                                    <a href="/admin/admins/edit/<?=$admin->id?>" title="Edit"><i class="fa fa-pencil"></i></a>
+                                    <a href="/admin/admins/changePassword/<?=$admin->id ?>" title="Change Password"><i class="fa fa-cogs"></i></a>
+                                    <button title="Delete" class="delete-admin" type="submit" data-id="<?=$admin->id ?>"><i class="fa fa-remove"></i></button>
 
                                 </td>
                             </tr>
+                            <?php endforeach ?>
 
 
                             </tbody>

@@ -17,78 +17,54 @@
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <!-- BEGIN FORM-->
                         <div class="form-body">
+                        <!-- BEGIN FORM-->
+                        <form class="register-form" action="<?= base_url()?>admin/admins/create" method="post">
+                            <?php echo validation_errors(); ?>
+                            <p class="hint"><h4> Enter your personal details below:</h4></p>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Role</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" name="role_id">
-                                        @foreach($roles as $role)
-                                        @if(Input::old('role_id') == $role->id)
-                                        <option selected value="{{$role->id}}">{{$role->name}}</option>
-                                        @else
-                                        <option value="{{$role->id}}">{{$role->name}}</option>
-                                        @endif
-                                        @endforeach
-                                    </select>
-                                    <span class="help-block">You can Add new Role <a href="/admin/manage/roles/create">Here</a></span>
-                                </div>
+                                <label class="control-label" for="role">Role</label>
+                                <select class="form-control " name="role_id" id="role">
+                                    <?php foreach ($roles as $role): ?>
+                                    <option value="<?=$role->id; ?>"><?=$role->name; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Organization</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" name="organization_id">
-                                        @foreach($organizations as $organization)
-                                        @if(Input::old('organization_id') == $organization->id)
-                                        <option selected value="{{$organization->id}}">{{$organization->name}}</option>
-                                        @else
-                                        <option value="{{$organization->id}}">{{$organization->name}}</option>
-                                        @endif
-                                        @endforeach
-                                    </select>
-                                    <span class="help-block">You can Add new Organization <a href="/admin/manage/organizations/create">Here</a></span>
-                                </div>
+                                <label class="control-label" for="name">Name</label>
+                                <input class="form-control" type="text" placeholder="Name" name="name" id="name"/>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Firstname</label>
-                                <div class="col-md-4">
-                                    {{Form::text('firstname','',['class' => 'form-control'])}}
-                                </div>
+                                <label class="control-label" for="surname">Surname</label>
+                                <input class="form-control" type="text" placeholder="Surname" name="surname" id="surname"/>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Lastname</label>
-                                <div class="col-md-4">
-                                    {{Form::text('lastname','',['class' => 'form-control'])}}
-                                </div>
+                                <label class="control-label " for="email">Email</label>
+                                <input class="form-control" type="text" placeholder="Email" name="email" id="email"/>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Username</label>
-                                <div class="col-md-4">
-                                    {{Form::text('email','',['class' => 'form-control'])}}
-                                </div>
+                                <label class="control-label " for="phone_number">Phone number</label>
+                                <input class="form-control" type="text" placeholder="Phone number" name="phone_number" id="phone_number" />
+                            </div>
+                            <p class="hint"><h4> Enter your account details below:</h4></p>
+                            <div class="form-group">
+                                <label class="control-label " for="login">Login</label>
+                                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Login" name="login" id="login" />
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Password</label>
-                                <div class="col-md-4">
-                                    <input type="password" class="form-control" id="password" name="password">
-                                </div>
+                                <label class="control-label " for="register_password" >Password</label>
+                                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" />
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Confirm Password</label>
-                                <div class="col-md-4">
-                                    <input type="password" class="form-control" name="password_confirmation">
-                                </div>
+                                <label class="control-label " for="rpassword">Re-type Your Password</label>
+                                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" id="rpassword"/>
                             </div>
-                        </div>
-                        <div class="form-actions">
-                            <div class="row">
-                                <div class="col-md-offset-3 col-md-9">
-                                    <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
-                                    <a href="{{url()->previous()}}" type="button" class="btn default">Cancel</a>
-                                </div>
+                            <div class="form-actions">
+                                <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-left">Add</button>
                             </div>
-                        </div>
+                        </form>
                         <!-- END FORM-->
+                        </div>
                     </div>
                 </div>
                 <!-- END PORTLET-->

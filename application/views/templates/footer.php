@@ -30,13 +30,6 @@
 <script src="<?= base_url()?>/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="<?= base_url()?>/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
 <script src="<?= base_url()?>/assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
 <script src="<?= base_url()?>/assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
 <script src="<?= base_url()?>/assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
@@ -54,6 +47,7 @@
 <script src="<?= base_url()?>/assets/admin/layout2/scripts/demo.js" type="text/javascript"></script>
 <script src="<?= base_url()?>/assets/admin/pages/scripts/index.js" type="text/javascript"></script>
 <script src="<?= base_url()?>/assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+<script src="<?= base_url()?>/assets/admin/js/admin.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
     jQuery(document).ready(function() {
