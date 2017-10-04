@@ -38,4 +38,16 @@ class Admins_model extends CI_Model {
     public function delete($id){
         $this->db->delete($this->table, array('id' => $id));
     }
+
+    function key_exists($field,$key)
+    {
+        $this->db->where($field,$key);
+        $query = $this->db->get($this->table);
+        if ($query->num_rows() > 0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }

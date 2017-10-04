@@ -23,38 +23,38 @@
                             <form class="register-form" action="<?= base_url()?>admin/admins/edit/<?=$id?>" method="post">
 
                                 <?php echo validation_errors(); ?>
-                                <p class="hint"><h4> Enter your personal details below:</h4></p>
                                 <div class="form-group">
-                                    <label class="control-label" for="role">Set your new role</label>
+                                    <label class="control-label" for="role">Role</label>
                                     <select class="form-control " name="role_id" id="role">
                                         <?php foreach ($roles as $role): ?>
+                                            <?php if($admin[0]->role_id == $role->id): ?>
+                                            <option selected value="<?=$role->id; ?>"><?=$role->name; ?></option>
+                                            <?php else: ?>
                                             <option value="<?=$role->id; ?>"><?=$role->name; ?></option>
+                                            <?php endif; ?>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <?php foreach ($admin as $ad): ?>
 
                                     <label class="control-label" for="name">Name</label>
-                                    <input class="form-control" type="text" placeholder="Name" name="name" value="<?=$ad->name?>" id="name"/>
+                                    <input class="form-control" type="text" placeholder="Name" name="name" value="<?=$admin[0]->name?>" id="name"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="surname">Surname</label>
-                                    <input class="form-control" type="text" placeholder="Surname" name="surname" value="<?=$ad->surname?>" id="surname"/>
+                                    <input class="form-control" type="text" placeholder="Surname" name="surname" value="<?=$admin[0]->surname?>" id="surname"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label " for="email">Email</label>
-                                    <input class="form-control" type="text" placeholder="Email" name="email" value="<?=$ad->email?>" id="email"/>
+                                    <input class="form-control" type="text" placeholder="Email" name="email" value="<?=$admin[0]->email?>" id="email"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label " for="phone_number">Phone number</label>
-                                    <input class="form-control" type="text" placeholder="Phone number" name="phone_number" value="<?=$ad->phone_number?>" id="phone_number" />
+                                    <input class="form-control" type="text" placeholder="Phone number" name="phone_number" value="<?=$admin[0]->phone_number?>" id="phone_number" />
                                 </div>
-                                <p class="hint"><h4> Enter your account details below:</h4></p>
                                 <div class="form-group">
                                     <label class="control-label " for="login">Login</label>
-                                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Login" name="login" value="<?=$ad->login?>" id="login" />
-                                <?php endforeach;?>
+                                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Login" name="login" value="<?=$admin[0]->login?>" id="login" />
                                 </div>
                                 <div class="form-actions">
                                     <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-left">Save</button>
