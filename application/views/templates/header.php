@@ -261,7 +261,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
                                 <a href="/admin/auth/logout">
-                                    <i class="icon-key"></i> Log Out </a>
+                                    <i class="icon-key"></i> Выйти из аккаунта </a>
                             </li>
                         </ul>
                     </li>
@@ -300,7 +300,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <?php endif; ?>
                         <a href="/admin/home">
                             <i class="icon-home"></i>
-                            <span class="title">Home</span>
+                            <span class="title">Главная</span>
                             <span class="selected"></span>
                         </a>
                         <?php if($page == 'admins'): ?>
@@ -310,7 +310,17 @@ License: You must have a valid license purchased only from themeforest(the above
                         <?php endif; ?>
                         <a href="/admin/admins">
                             <i class="icon-user"></i>
-                            <span class="title">Admins</span>
+                            <span class="title">Администрация</span>
+                            <span class="selected"></span>
+                        </a>
+                         <?php if($page == 'cars'): ?>
+                         <li class="active ">
+                         <?php else: ?>
+                         <li class="">
+                         <?php endif; ?>
+                         <a href="/admin/cars">
+                            <i class=""></i>
+                            <span class="title">Автомобили</span>
                             <span class="selected"></span>
                         </a>
                     </li>

@@ -21,15 +21,15 @@ class Admins extends CI_Controller{
 
     public function create(){
         if ($this->input->method() == 'post') {
-            $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('surname', 'Surname', 'required');
-            $this->form_validation->set_rules('login', 'Login', 'required|callback_login_exists');
-            $this->form_validation->set_rules('password', 'Password', 'required');
-            $this->form_validation->set_rules('rpassword', 'Re-type Password', 'required|matches[password]');
-            $this->form_validation->set_rules('email', 'Email', 'required|callback_email_exists');
-            $this->form_validation->set_rules('phone_number', 'Phone number', 'required');
-            $this->form_validation->set_message('email_exists', 'Email already exists');
-            $this->form_validation->set_message('login_exists', 'Login already exists');
+            $this->form_validation->set_rules('name', 'Имя', 'required');
+            $this->form_validation->set_rules('surname', 'Фамилия', 'required');
+            $this->form_validation->set_rules('login', 'Логин', 'required|callback_login_exists');
+            $this->form_validation->set_rules('password', 'Пароль', 'required');
+            $this->form_validation->set_rules('rpassword', 'Повторите пароль', 'required|matches[password]');
+            $this->form_validation->set_rules('email', 'Электронная почта', 'required|callback_email_exists');
+            $this->form_validation->set_rules('phone_number', 'Номер телефона', 'required');
+            $this->form_validation->set_message('email_exists', 'Такая электронная почта уже существует');
+            $this->form_validation->set_message('login_exists', 'Такой логин уже существует');
 
 
             if ($this->form_validation->run() !== FALSE){

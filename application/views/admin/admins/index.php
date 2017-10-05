@@ -2,7 +2,7 @@
     <div class="page-content">
         <!-- BEGIN PAGE HEADER-->
         <h3 class="page-title">
-            Home</h3>
+            Администрация</h3>
         <!-- END PAGE HEADER-->
         <div class="row">
             <div class="col-md-12">
@@ -10,7 +10,8 @@
                 <div class="portlet box grey-cascade">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-user"></i>Managed Admins
+                            <i class="fa fa-user"></i>Администраторы
+
                         </div>
                     </div>
                     <div class="portlet-body">
@@ -19,7 +20,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" href="/admin/admins/create" class="btn green">
-                                            Add New <i class="fa fa-plus"></i>
+                                            Дабавить  <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -29,22 +30,22 @@
                             <thead>
                             <tr>
                                 <th>
-                                    Role
+                                    Роль
                                 </th>
                                 <th>
-                                    Name
+                                    Имя
                                 </th>
                                 <th>
-                                    Phone
+                                    Номер мобильного телефона
                                 </th>
                                 <th>
-                                    Login
+                                    Лигин
                                 </th>
                                 <th>
-                                    Created At
+                                    Создано
                                 </th>
                                 <th>
-                                    Actions
+                                    Настроить
                                 </th>
                             </tr>
                             </thead>
@@ -58,9 +59,9 @@
                                 <td><?=$admin->login ?></td>
                                 <td><?=$admin->create_at?></td>
                                 <td>
-                                    <a href="/admin/admins/edit/<?=$admin->id?>" title="Edit"><i class="fa fa-pencil"></i></a>
-                                    <a href="/admin/admins/changePassword/<?=$admin->id ?>" title="Change Password"><i class="fa fa-cogs"></i></a>
-                                    <button title="Delete" class="delete-admin" type="submit" data-id="<?=$admin->id ?>"><i class="fa fa-remove"></i></button>
+                                    <a href="/admin/admins/edit/<?=$admin->id?>" title="Редактировать"><i class="fa fa-pencil"></i></a>
+                                    <a href="/admin/admins/changePassword/<?=$admin->id ?>" title="Сменить пароль"><i class="fa fa-cogs"></i></a>
+                                    <button title="Удалить" class="delete-admin" type="submit" data-id="<?=$admin->id ?>"><i class="fa fa-remove"></i></button>
 
                                 </td>
                             </tr>

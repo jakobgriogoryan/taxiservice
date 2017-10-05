@@ -1,15 +1,5 @@
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.2
-Version: 3.3.0
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
+
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
@@ -62,26 +52,26 @@ License: You must have a valid license purchased only from themeforest(the above
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
     <form class="login-form" action=" <?= base_url()?>admin/auth/login" method="post">
-        <h3 class="form-title">Sign In</h3>
+        <h3 class="form-title">Регистрация</h3>
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
             <span>
-			Enter any name and password. </span>
+			Введите ваш логин и пароль. </span>
         </div>
         <div class="form-group">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            <label class="control-label visible-ie8 visible-ie9">Login</label>
-            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Login" name="login"/>
+            <label class="control-label visible-ie8 visible-ie9">Логин</label>
+            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Логин" name="login"/>
         </div>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Password</label>
-            <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+            <label class="control-label visible-ie8 visible-ie9">Пароль</label>
+            <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Пароль" name="password"/>
         </div>
         <div class="form-actions">
-            <button type="submit" class="btn btn-success uppercase">Login</button>
+            <button type="submit" class="btn btn-success uppercase">Войти</button>
             <label class="rememberme check">
-                <input type="checkbox" name="remember" value="1"/>Remember </label>
-            <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+                <input type="checkbox" name="remember" value="1"/>Запомнить </label>
+            <a href="javascript:;" id="forget-password" class="forget-password">Забыли пароль?</a>
         </div>
 <!--        <div class="login-options">-->
 <!--            <h4>Or login with</h4>-->
@@ -102,48 +92,48 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--        </div>-->
         <div class="create-account">
             <p>
-                <a href="javascript:;" id="register-btn" class="uppercase">Create an account</a>
+                <a href="javascript:;" id="register-btn" class="uppercase">Зарегистрироваться</a>
             </p>
         </div>
     </form>
     <!-- END LOGIN FORM -->
     <!-- BEGIN FORGOT PASSWORD FORM -->
     <form class="forget-form" action="<?= base_url().'/login' ?>" method="post">
-        <h3>Forget Password ?</h3>
+        <h3>Забыли пароль ?</h3>
         <p>
-            Enter your e-mail address below to reset your password.
+            Введите ваш электронная почта для изменения паролья.
         </p>
         <div class="form-group">
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Электронная почта" name="email"/>
         </div>
         <div class="form-actions">
-            <button type="button" id="back-btn" class="btn btn-default">Back</button>
-            <button type="submit" class="btn btn-success uppercase pull-right">Submit</button>
+            <button type="button" id="back-btn" class="btn btn-default">Назад</button>
+            <button type="submit" class="btn btn-success uppercase pull-right">Далее</button>
         </div>
     </form>
     <!-- END FORGOT PASSWORD FORM -->
     <!-- BEGIN REGISTRATION FORM -->
     <form class="register-form" action="<?= base_url()?>/login" method="post">
-        <h3>Sign Up</h3>
+        <h3>Регистрация</h3>
         <p class="hint">
-            Enter your personal details below:
+            Введите ваши персональные данные:
         </p>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Name</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Name" name="name"/>
+            <label class="control-label visible-ie8 visible-ie9">Имя</label>
+            <input class="form-control placeholder-no-fix" type="text" placeholder="Имя" name="name"/>
         </div>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Surname</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Surname" name="surname"/>
+            <label class="control-label visible-ie8 visible-ie9">Фамилия</label>
+            <input class="form-control placeholder-no-fix" type="text" placeholder="Фамилия" name="surname"/>
         </div>
         <div class="form-group">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            <label class="control-label visible-ie8 visible-ie9">Email</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
+            <label class="control-label visible-ie8 visible-ie9">Электронная почта</label>
+            <input class="form-control placeholder-no-fix" type="text" placeholder="Электронная почта" name="email"/>
         </div>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Phone number</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Phone number" name="phone_number"/>
+            <label class="control-label visible-ie8 visible-ie9">Номер мовильного телефона</label>
+            <input class="form-control placeholder-no-fix" type="text" placeholder="Номер мовильного телефона" name="phone_number"/>
         </div>
 <!--        <div class="form-group">-->
 <!--            <label class="control-label visible-ie8 visible-ie9">City/Town</label>-->
@@ -151,19 +141,19 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--        </div>-->
 
         <p class="hint">
-            Enter your account details below:
+            Введите данные вашего аккаунта:
         </p>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Login</label>
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Login" name="login"/>
+            <label class="control-label visible-ie8 visible-ie9">Логин</label>
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Логин" name="login"/>
         </div>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Password</label>
-            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
+            <label class="control-label visible-ie8 visible-ie9">Пароль</label>
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Пароль" name="password"/>
         </div>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword"/>
+            <label class="control-label visible-ie8 visible-ie9">Павторите пароль</label>
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Павторите пароль" name="rpassword"/>
         </div>
 <!--        <div class="form-group margin-top-20 margin-bottom-20">-->
 <!--            <label class="check">-->
@@ -176,8 +166,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--            </div>-->
 <!--        </div>-->
         <div class="form-actions">
-            <button type="button" id="register-back-btn" class="btn btn-default">Back</button>
-            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+            <button type="button" id="register-back-btn" class="btn btn-default">Назад</button>
+            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Создать аккаунт</button>
         </div>
     </form>
     <!-- END REGISTRATION FORM -->
