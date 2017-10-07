@@ -16,8 +16,8 @@ class Admins_model extends CI_Model {
     }
 
     public function selectAll(){
-        $this->db->select('*');
-        $this->db->from($this->table);
+        $this->db->select($this->table.'.*,role.name as role_name');
+        $this->db->from($this->table)->join('role', 'role.id = '.$this->table.'.role_id');
         $query = $this->db->get();
         return $query->result();
     }

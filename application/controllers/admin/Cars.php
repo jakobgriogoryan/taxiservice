@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Hakob
- * Date: 10/4/2017
- * Time: 5:44 PM
- */
+
 
 class Cars extends CI_Controller
 {
@@ -36,14 +31,18 @@ class Cars extends CI_Controller
 
     public function create(){
         if ($this->input->method() == 'post') {
-            $this->form_validation->set_rules('name', 'Имя', 'required');
-            $this->form_validation->set_rules('passengers_count', 'Посадочные места ', 'required');
-            $this->form_validation->set_rules('minimum_order', 'Минимальный заказ ', 'required');
-            $this->form_validation->set_rules('further', 'Далее', 'required');
-            $this->form_validation->set_rules('for_mkad', 'За МКАД', 'required');
-            $this->form_validation->set_rules('over_200km', 'Свыше 200км от МКАД', 'required');
-            $this->form_validation->set_rules('image','Cars image','required');
-
+            $this->form_validation->set_rules('name', 'Заполните Имя', 'required');
+            $this->form_validation->set_rules('passengers_count', 'Заполните Посадочные места ', 'required');
+            $this->form_validation->set_rules('minimum_order', 'Заполните Минимальный заказ ', 'required|integer');
+            $this->form_validation->set_rules('further', 'Заполните Далее', 'required|integer');
+            $this->form_validation->set_rules('for_mkad', 'Заполните За МКАД', 'required|integer');
+            $this->form_validation->set_rules('over_200km', 'Заполните Свыше 200км от МКАД', 'required|integer');
+            if (empty($_FILES['image_1']))
+            {
+                $this->form_validation->set_rules('image_1','Вы должны загрузить хотя бы одну картинку','required');
+            }
+            $this->form_validation->set_message('required','%s');
+            $this->form_validation->set_message('integer','%s (Число)');
 
             if ($this->form_validation->run() !== FALSE){
 
@@ -56,40 +55,28 @@ class Cars extends CI_Controller
                     'over_200km' => $this->input->post('over_200km')
                 );
                 $this->load->model('cars_model');
-                $this->cars_model->add($data);
-
+                $car_id = $this->cars_model->add($data);
                 $this->load->model('images_model');
-
-                $dataImage = $this->input->post('image');
-
-                $config['upload_path']          = './img/';
+                $config['upload_path']          = 'assets/images/cars/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg';
                 $config['encrypt_name'] = TRUE;
 //                $config['max_width']            = 1024;
 //                $config['max_height']           = 768;
 
-//                print_r($config);die;
                 $this->load->library('upload', $config);
-                if ( ! $image = $this->upload->do_upload('image'))
+                for($i = 1; $i <= 10; $i++){
+                    if ( ! $image = $this->upload->do_upload('image_'.$i))
                     {
-                        $error = array('error' => $this->upload->display_errors());
-
-                        $this->load->template('admin/cars/edit', $error);
-
-                        echo 'Image is not uploaded ';
-
+                        continue;
                     }else{
-                    $insert_data = array(
-//                            'upload_data'=> $this->upload->insert_data(''),
-                            $this->upload->data('name'),
-//                            'cars_id' =>$this->session->data('id')
+                        $insert_data = array(
+                            'name' => $this->upload->data('file_name'),
+                            'car_id' => $car_id
                         );
-                    $this->images_model->image($insert_data);
-                    $this->load->template('admin/cars');
+                        $this->images_model->add($insert_data);
+                    }
                 }
-
-
-                redirect('/admin/cars/create');
+                redirect('/admin/cars');
             }
 
         }
@@ -99,40 +86,88 @@ class Cars extends CI_Controller
 
     public function edit($id)
     {
+        $this->load->model('cars_model');
+        $this->load->model('images_model');
 
         if ($this->input->method() == 'post') {
-            $this->form_validation->set_rules('name', 'Имя', 'required');
-            $this->form_validation->set_rules('passengers_count', 'Посадочные места ', 'required' | 'selected');
-            $this->form_validation->set_rules('minimum_order', 'Минимальный заказ ', 'required');
-            $this->form_validation->set_rules('further	', 'Далее', 'required');
-            $this->form_validation->set_rules('for_mkad', 'За МКАД', 'required');
-            $this->form_validation->set_rules('Over_200km', 'Свыше 200км от МКАД', 'required');
-
-
+            $this->form_validation->set_rules('name', 'Заполните Имя', 'required');
+            $this->form_validation->set_rules('passengers_count', 'Заполните Посадочные места ', 'required');
+            $this->form_validation->set_rules('minimum_order', 'Заполните Минимальный заказ ', 'required|integer');
+            $this->form_validation->set_rules('further', 'Заполните Далее', 'required|integer');
+            $this->form_validation->set_rules('for_mkad', 'Заполните За МКАД', 'required|integer');
+            $this->form_validation->set_rules('over_200km', 'Заполните Свыше 200км от МКАД', 'required|integer');
+            $uploaded_image = false;
+            for($i = 1; $i <= 10; $i++){
+                $image = $this->input->post('exist_image_'.$i);
+                if(isset($image)){
+                    $uploaded_image = true;
+                }
+            }
+            if(!$uploaded_image){
+                if (empty($_FILES['image_1']))
+                {
+                    $this->form_validation->set_rules('image_1','Вы должны загрузить хотя бы одну картинку','required');
+                }
+            }
             if ($this->form_validation->run() !== FALSE) {
-
                 $data = array(
                     'name' => $this->input->post('name'),
                     'passengers_count' => $this->input->post('passengers_count'),
                     'minimum_order' => $this->input->post('minimum_order'),
                     'further' => ($this->input->post('further')),
                     'for_mkad' => $this->input->post('for_mkad'),
-                    'Over_200km' => $this->input->post('Over_200km')
+                    'over_200km' => $this->input->post('over_200km')
                 );
-                $this->load->model('cars_model');
-                $this->cars_model->add($data);
-                $this->load->template('admin/cars/add');
+                $this->cars_model->edit($data,$id);
+                $config['upload_path']          = 'assets/images/cars/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                $config['encrypt_name'] = TRUE;
+//                $config['max_width']            = 1024;
+//                $config['max_height']           = 768;
 
-                redirect('/admin/cars/add');
+                $this->load->library('upload', $config);
+                for($i = 1; $i <= 10; $i++){
+                    if ( ! $image = $this->upload->do_upload('image_'.$i))
+                    {
+                        continue;
+                    }else{
+                        $insert_data = array(
+                            'name' => $this->upload->data('file_name'),
+                            'car_id' => $id
+                        );
+                        $this->images_model->add($insert_data);
+                    }
+                }
+
+                redirect('/admin/cars');
             }
 
         }
-        $admin = $this->cars_model->getById($id);
-
-        $this->load->template('admin/cars/edit', [ 'id' => $id, 'admin' => $admin]);
-        $this->load->template('admin/cars/add');
-
+        $car = $this->cars_model->getById($id);
+        $images = $this->images_model->getById($id);
+        $this->load->template('admin/cars/edit', [ 'id' => $id, 'car' => $car,'passengers_count' => $this->passengers_count,'images' => $images]);
 
     }
 
+    public function getImages(){
+        $id = $this->input->get('id');
+        $this->load->model('images_model');
+        $cars = $this->images_model->getById($id);
+        echo json_encode($cars);
+    }
+
+    public function deleteImage(){
+        $id = $this->input->get('id');
+        $image = $this->input->get('image');
+        $this->load->model('images_model');
+        unlink('assets/images/cars/'.$image);
+        $cars = $this->images_model->delete($id);
+        echo json_encode(true);
+    }
+
+    public function delete($id){
+        $this->load->model('cars_model');
+        $this->cars_model->delete($id);
+        echo json_encode(array('success' => true));
+    }
 }

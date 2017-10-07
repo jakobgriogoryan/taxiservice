@@ -20,7 +20,7 @@
                     <div class="portlet-body form">
                         <div class="form-body">
                             <!-- BEGIN FORM-->
-                            <form class="register-form" action="<?= base_url()?>admin/cars/create" method="post">
+                            <form class="register-form" action="<?= base_url()?>admin/cars/create" method="post" enctype="multipart/form-data">
                                 <?php echo validation_errors(); ?>
                                 <div class="form-group">
                                     <label class="control-label" for="name">Имя</label>
@@ -31,7 +31,7 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="form-group">
-                                    <span><h4>Посадочные места</h4></span>
+                                    <label class="control-label">Посадочные места</label>
                                     <select name="passengers_count" class="form-control">
                                         <?php foreach($passengers_count as $count): ?>
                                             <?php if(isset($_POST['passengers_count']) && $_POST['passengers_count'] == $count): ?>
@@ -81,7 +81,9 @@
                                 </div>
 
                                 <h3>Выберите картинку:</h3>
-                                <input type="file" name="image" id="fileToUpload">
+                                <?php for($i = 1; $i <= 10; $i++): ?>
+                                <input type="file" name="image_<?=$i ?>">
+                                <?php endfor; ?>
 
                                 <div class="form-actions">
                                     <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-left">Дабавить</button>

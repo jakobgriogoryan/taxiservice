@@ -5,7 +5,7 @@ class Cars_model extends CI_Model{
 
     public function add($data){
         $this->db->insert($this->table,$data);
-
+        return $this->db->insert_id();
     }
 
     public function selectAll(){

@@ -20,41 +20,32 @@
                     <div class="portlet-body form">
                         <div class="form-body">
                             <!-- BEGIN FORM-->
-                            <form class="register-form" action="<?= base_url()?>admin/cars/add" method="post">
+                            <form class="register-form" action="<?= base_url()?>admin/cars/edit/<?=$id ?>" method="post" enctype="multipart/form-data">
                                 <?php echo validation_errors(); ?>
                                 <div class="form-group">
                                     <label class="control-label" for="name">Имя</label>
                                     <?php if(isset($_POST['name'])): ?>
                                         <input class="form-control" type="text" placeholder="Имя" value="<?= $_POST['name'] ?>" name="name" id="name"/>
                                     <?php else: ?>
-                                        <input class="form-control" type="text" placeholder="Имя" value="" name="name" id="name"/>
+                                        <input class="form-control" type="text" placeholder="Имя" value="<?=$car[0]->name ?>" name="name" id="name"/>
                                     <?php endif; ?>
                                 </div>
                                 <div class="form-group">
-                                    <span><h4>Посадочные места</h4></span>
-                                    <?php if(isset($_POST['passengers_count'])): ?>
-                                        <select value="<?= $_POST['passengers_count'] ?>" name="passengers_count"/>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>5-6</option>
-                                        <option>6-7</option>
-                                        <option>7-8</option>
-                                        <option>9-11</option>
-                                        <option>12-17</option>
-                                        <option>18-20</option>
-                                        </select>
-                                    <?php else: ?>
-                                        <select  value="" name="passengers_count"/>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>5-6</option>
-                                        <option>6-7</option>
-                                        <option>7-8</option>
-                                        <option>9-11</option>
-                                        <option>12-17</option>
-                                        <option>18-20</option>
-                                        </select>
-                                    <?php endif; ?>
+                                    <label class="control-label">Посадочные места</label>
+                                    <select name="passengers_count" class="form-control">
+                                    <?php foreach($passengers_count as $count): ?>
+                                        <?php if(isset($_POST['passengers_count']) && $_POST['passengers_count'] == $count): ?>
+                                            <option selected value="<?=$count ?>"><?=$count ?></option>
+                                        <?php else:; ?>
+                                            <?php if($car[0]->passengers_count == $count): ?>
+                                            <option selected value="<?=$count ?>"><?=$count ?></option>
+                                            <?php else: ?>
+                                            <option value="<?=$count ?>"><?=$count ?></option>
+                                            <?php endif; ?>
+
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
@@ -62,7 +53,7 @@
                                     <?php if(isset($_POST['minimum_order'])): ?>
                                         <input class="form-control" type="text" placeholder="Минимальный заказ " value="<?= $_POST['minimum_order'] ?>" name="minimum_order" id="minimum_order"/>
                                     <?php else: ?>
-                                        <input class="form-control" type="text" placeholder="Минимальный заказ" name="minimum_order" id="minimum_order"/>
+                                        <input class="form-control" type="text" placeholder="Минимальный заказ" value="<?=$car[0]->minimum_order ?>" name="minimum_order" id="minimum_order"/>
                                     <?php endif; ?>
                                 </div>
 
@@ -71,7 +62,7 @@
                                     <?php if(isset($_POST['further'])): ?>
                                         <input class="form-control" type="text" placeholder="Далее" value="<?= $_POST['further'] ?>" name="further" id="further" />
                                     <?php else: ?>
-                                        <input class="form-control" type="text" placeholder="Далее" name="further" id="further" />
+                                        <input class="form-control" type="text" placeholder="Далее" value="<?=$car[0]->further ?>" name="further" id="further" />
                                     <?php endif; ?>
                                 </div>
 
@@ -80,21 +71,33 @@
                                     <?php if(isset($_POST['for_mkad'])): ?>
                                         <input class="form-control" type="text" autocomplete="off" value="<?= $_POST['for_mkad'] ?>" placeholder="За МКАД" name="for_mkad" id="for_mkad" />
                                     <?php else: ?>
-                                        <input class="form-control" type="text" autocomplete="off" placeholder="За МКАД" name="for_mkad" id="for_mkad" />
+                                        <input class="form-control" type="text" autocomplete="off" value="<?=$car[0]->for_mkad ?>" placeholder="За МКАД" name="for_mkad" id="for_mkad" />
                                     <?php endif; ?>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="control-label " for="Over_200km">Свыше 200км от МКАД</label>
-                                    <?php if(isset($_POST['Over_200km'])): ?>
-                                        <input class="form-control" type="text" autocomplete="off" value="<?= $_POST['Over_200km'] ?>" placeholder="Свыше 200км от МКАД" name="Over_200km" id="Over_200km" />
+                                    <?php if(isset($_POST['over_200km'])): ?>
+                                        <input class="form-control" type="text" autocomplete="off" value="<?= $_POST['over_200km'] ?>" placeholder="Свыше 200км от МКАД" name="over_200km" />
                                     <?php else: ?>
-                                        <input class="form-control" type="text" autocomplete="off" placeholder="Свыше 200км от МКАД" name="Over_200km" id="Over_200km" />
+                                        <input class="form-control" type="text" autocomplete="off" value="<?=$car[0]->over_200km ?>" placeholder="Свыше 200км от МКАД" name="over_200km" />
                                     <?php endif; ?>
                                 </div>
 
+                                <h3>Текущие картинки:</h3>
+                                <div class="row">
+                                    <?php $i = 0; foreach($images as $image): ?>
+                                    <div class="col-md-4">
+                                        <a href="javascript:;" data-id="<?=$image->image_id ?>" data-image="<?=$image->name ?>" class="remove-image" style="color:red"><i class="fa fa-remove"></i></a>
+                                        <input type="hidden" name="exist_image_<?=$i ?>" value="<?=$image->image_id ?>">
+                                        <img class="img-responsive" src="/assets/images/cars/<?=$image->name ?>">
+                                    </div>
+                                    <?php $i++; endforeach; ?>
+                                </div>
                                 <h3>Выберите картинку:</h3>
-                                <input type="file" name="image" id="fileToUpload">
+                                <?php for($i = 1; $i <= 10; $i++): ?>
+                                    <input type="file" name="image_<?=$i ?>">
+                                <?php endfor; ?>
 
                                 <div class="form-actions">
                                     <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-left">Дабавить</button>

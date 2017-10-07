@@ -1,70 +1,55 @@
-</div>
-</div>
-<!-- BEGIN FOOTER -->
-<div class="page-footer">
-    <div class="page-footer-inner">
-        2014 &copy; Metronic by keenthemes.
+
+<div class="bot1">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="bot1_inner clearfix">
+                    <div class="menu_bot">
+                        <ul id="menu_bot" class="clearfix">
+                            <li><a href="index-2.html">home</a></li>
+                            <li><a href="index-1.html">who we are</a></li>
+                            <li><a href="index-3.html">our cars</a></li>
+                            <li><a href="index-4.html">book online</a></li>
+                            <li><a href="index-5.html">services</a></li>
+                            <li><a href="index-6.html">contacts</a></li>
+                        </ul>
+                    </div>
+                    <div class="search-form-wrapper clearfix">
+                        <form id="search-form" method="GET" accept-charset="utf-8" class="navbar-form" >
+                            <input type="text" name="s" value='Search' onBlur="if(this.value=='') this.value='Search'" onFocus="if(this.value =='Search' ) this.value=''">
+                            <a href="#" onClick="document.getElementById('search-form').submit()"></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="scroll-to-top">
-        <i class="icon-arrow-up"></i>
+</div>
+<div class="bot2">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="bot2_inner clearfix">
+                    <footer>
+                        <div class="copyright">Copyright   © 2016. All rights reserved.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Privacy policy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Mail Us</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Site map</a>
+                        </div>
+                    </footer>
+                    <div class="social_wrapper">
+                        <ul class="social clearfix">
+                            <li><a href="#"><img src="assets/frontend/images/social_ic1.png"></a></li>
+                            <li><a href="#"><img src="assets/frontend/images/social_ic2.png"></a></li>
+                            <li><a href="#"><img src="assets/frontend/images/social_ic3.png"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<!-- END FOOTER -->
+
 </div>
-<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-<!-- BEGIN CORE PLUGINS -->
-<!--[if lt IE 9]>
-<script src="<?= base_url()?>/assets/global/plugins/respond.min.js"></script>
-<script src="<?= base_url()?>/assets/global/plugins/excanvas.min.js"></script>
-<![endif]-->
-<script src="<?= base_url()?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
-<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-<script src="<?= base_url()?>/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
-<!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="<?= base_url()?>/assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-<!-- IMPORTANT! fullcalendar depends on jquery-ui.min.js for drag & drop support -->
-<script src="<?= base_url()?>/assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="<?= base_url()?>/assets/global/scripts/metronic.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/admin/layout2/scripts/demo.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/admin/pages/scripts/index.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
-<script src="<?= base_url()?>/assets/admin/js/admin.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
-<script>
-    jQuery(document).ready(function() {
-        Metronic.init(); // init metronic core componets
-        Layout.init(); // init layout
-        Demo.init(); // init demo features
-        Index.init();
-        Index.initDashboardDaterange();
-        Index.initJQVMAP(); // init index page's custom scripts
-        Index.initCalendar(); // init index page's custom scripts
-        Index.initCharts(); // init index page's custom scripts
-        Index.initChat();
-        Index.initMiniCharts();
-        Tasks.initDashboardWidget();
-    });
-</script>
-<!-- END JAVASCRIPTS -->
+<script type="text/javascript" src="assets/frontend/js/bootstrap.js"></script>
 </body>
-<!-- END BODY -->
+
+<!-- Mirrored from demo.gridgum.com/templates/bootstrap-templates/22367/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 08:26:38 GMT -->
 </html>

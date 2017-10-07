@@ -13,10 +13,7 @@ class Home extends  CI_Controller{
     public function index(){
         $this->load->model('cars_model');
         $cars = $this->cars_model->selectAll();
-
-
         $this->load->template('admin/home',['cars'=> $cars]);
-
     }
 
 

@@ -53,7 +53,7 @@
 
                             <?php foreach($admins as $admin): ?>
                             <tr class="odd gradeX">
-                                <td><?=$admin->role_id ?></td>
+                                <td><?=$admin->role_name ?></td>
                                 <td><?=$admin->name ?><?=$admin->surname ?></td>
                                 <td><?=$admin->phone_number ?></td>
                                 <td><?=$admin->login ?></td>
