@@ -9,4 +9,16 @@ class Home extends  CI_Controller{
         $this->load->template('cars');
     }
 
+    public function booking(){
+        $this->load->template('booking');
+    }
+
+    public function services(){
+        $this->load->template('services');
+    }
+
+    public function contacts(){
+        $this->load->template('contacts');
+    }
+
 }

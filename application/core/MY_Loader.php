@@ -4,9 +4,10 @@ class MY_Loader extends CI_Loader {
     public function template($template_name, $vars = array(), $return = FALSE)
     {
         $ci =& get_instance();
-        $page = $ci->uri->segment(2);
+        $page = $ci->uri->segment(1);
         $template_path = 'templates';
         if($ci->uri->segment(1) == 'admin'){
+            $page = $ci->uri->segment(2);
             $template_path = 'templates/admin';
         }
         if($return){
@@ -15,7 +16,6 @@ class MY_Loader extends CI_Loader {
             $content .= $this->view($template_path.'/footer', $vars, $return);
             return $content;
         }else{
-
             $vars['page'] = $page;
             $this->view($template_path.'/header', $vars);
             $this->view($template_name, $vars);

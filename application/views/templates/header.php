@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="assets/frontend/css/bootstrap-responsive.css" type="text/css" media="screen">
     <link rel="stylesheet" href="assets/frontend/css/camera.css" type="text/css" media="screen">
     <link rel="stylesheet" href="assets/frontend/css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="assets/frontend/css/touchTouch.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="assets/frontend/css/isotope.css" type="text/css" media="screen">
 
     <script type="text/javascript" src="assets/frontend/js/jquery.js"></script>
     <script type="text/javascript" src="assets/frontend/js/jquery.easing.1.3.js"></script>
@@ -23,6 +25,10 @@
 
     <script type="text/javascript" src="assets/frontend/js/camera.js"></script>
     <script type="text/javascript" src="assets/frontend/js/jquery.mobile.customized.min.js"></script>
+
+
+    <script type="text/javascript" src="assets/frontend/js/touchTouch.jquery.js"></script>
+    <script type="text/javascript" src="assets/frontend/js/jquery.isotope.min.js"></script>
     <script>
         $(document).ready(function() {
             // camera
@@ -81,18 +87,48 @@
                                             </a>
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
+                                                    <?php if(empty($page)): ?>
                                                     <li class="active"><a href="/">Home</a></li>
+                                                    <?php else: ?>
+                                                    <li><a href="/">Home</a></li>
+                                                    <?php endif; ?>
+
+                                                    <?php if($page == 'cars'): ?>
+                                                    <li class="active"><a href="/cars">Our cars</a></li>
+                                                    <?php else: ?>
                                                     <li><a href="/cars">Our cars</a></li>
-                                                    <li><a href="index-4.html">Book online</a></li>
-                                                    <li class="sub-menu sub-menu-1"><a href="index-1.html">About us</a></li>
-                                                    <li class="sub-menu sub-menu-1"><a href="index-5.html">Services<em></em></a>
+                                                    <?php endif; ?>
+
+                                                    <?php if($page == 'booking'): ?>
+                                                    <li class="active"><a href="/booking">Book online</a></li>
+                                                    <?php else: ?>
+                                                    <li><a href="/booking">Booking online</a></li>
+                                                    <?php endif; ?>
+
+                                                    <?php if($page == 'services'): ?>
+                                                    <li class="sub-menu sub-menu-1 active"><a href="services">Services<em></em></a>
                                                         <ul>
-                                                            <li><a href="index-5.html">taxi service</a></li>
-                                                            <li><a href="index-5.html">limo service</a></li>
-                                                            <li><a href="index-5.html">airport pickup service</a></li>
+                                                            <li><a href="index-5.html">Taxi service</a></li>
+                                                            <li><a href="index-5.html">Limo service</a></li>
+                                                            <li><a href="index-5.html">Airport pickup service</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li><a href="index-6.html">contacts</a></li>
+                                                    <?php else: ?>
+                                                        <li class="sub-menu sub-menu-1 "><a href="services">Services<em></em></a>
+                                                            <ul>
+                                                                <li><a href="services">Taxi service</a></li>
+                                                                <li><a href="services">Limo service</a></li>
+                                                                <li><a href="services">Airport pickup service</a></li>
+                                                            </ul>
+                                                        </li>
+
+                                                    <?php endif; ?>
+
+                                                    <?php if($page == 'contacts'): ?>
+                                                        <li class="active"><a href="contacts">Contacts</a></li>
+                                                    <?php else: ?>
+                                                        <li><a href="/contacts">Contacts</a></li>
+                                                    <?php endif; ?>
                                                 </ul>
                                             </div>
                                         </div>
