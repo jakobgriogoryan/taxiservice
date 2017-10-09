@@ -6,12 +6,11 @@
                 <div class="bot1_inner clearfix">
                     <div class="menu_bot">
                         <ul id="menu_bot" class="clearfix">
-                            <li><a href="index-2.html">home</a></li>
-                            <li><a href="index-1.html">who we are</a></li>
-                            <li><a href="index-3.html">our cars</a></li>
-                            <li><a href="index-4.html">book online</a></li>
-                            <li><a href="index-5.html">services</a></li>
-                            <li><a href="index-6.html">contacts</a></li>
+                            <li><a href="home">home</a></li>
+                            <li><a href="cars">our cars</a></li>
+                            <li><a href="booking">book online</a></li>
+                            <li><a href="services">services</a></li>
+                            <li><a href="contacts">contacts</a></li>
                         </ul>
                     </div>
                     <div class="search-form-wrapper clearfix">

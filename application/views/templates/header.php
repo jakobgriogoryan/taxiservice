@@ -108,9 +108,10 @@
                                                     <?php if($page == 'services'): ?>
                                                     <li class="sub-menu sub-menu-1 active"><a href="services">Services<em></em></a>
                                                         <ul>
-                                                            <li><a href="index-5.html">Taxi service</a></li>
-                                                            <li><a href="index-5.html">Limo service</a></li>
-                                                            <li><a href="index-5.html">Airport pickup service</a></li>
+                                                            <li><a href="services">Taxi service</a></li>
+                                                            <li><a href="services">Limo service</a></li>
+                                                            <li><a href="services">Airport pickup service</a></li>
+                                                            <li><a href="services">Airport pickup service</a></li>
                                                         </ul>
                                                     </li>
                                                     <?php else: ?>
@@ -118,6 +119,7 @@
                                                             <ul>
                                                                 <li><a href="services">Taxi service</a></li>
                                                                 <li><a href="services">Limo service</a></li>
+                                                                <li><a href="services">Airport pickup service</a></li>
                                                                 <li><a href="services">Airport pickup service</a></li>
                                                             </ul>
                                                         </li>
@@ -147,26 +149,27 @@
         <div id="slider" class="clearfix">
             <div class="slider_px2"></div>
             <div class="order1">
-                <div class="txt1">Order TAXI now! Call:</div>
+                <div class="txt1">
+                    Закажите TAXI сейчас! Вызов:</div>
                 <div class="txt2">1 800 123 4567</div>
             </div>
             <div id="camera_wrap">
                 <div data-src="assets/frontend/images/slide01.jpg">
                     <div class="camera_caption fadeIn">
-                        <div class="txt1">We will take you</div>
-                        <div class="txt2">wherever you need</div>
+                        <div class="txt1">Мы отвезем вас туда</div>
+                        <div class="txt2">где вам нужно</div>
                     </div>
                 </div>
                 <div data-src="assets/frontend/images/slide02.jpg">
                     <div class="camera_caption fadeIn">
-                        <div class="txt1">We will take you</div>
-                        <div class="txt2">wherever you need</div>
+                        <div class="txt1">Мы отвезем вас туда</div>
+                        <div class="txt2">где вам нужно</div>
                     </div>
                 </div>
                 <div data-src="assets/frontend/images/slide03.jpg">
                     <div class="camera_caption fadeIn">
-                        <div class="txt1">We will take you</div>
-                        <div class="txt2">wherever you need</div>
+                        <div class="txt1">Мы отвезем вас туда</div>
+                        <div class="txt2">где вам нужно</div>
                     </div>
                 </div>
             </div>

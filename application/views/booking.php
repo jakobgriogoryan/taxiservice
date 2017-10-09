@@ -17,12 +17,14 @@
         <div class="row">
             <div class="span8">
 
-                <h1>fill simple form and order your taxi</h1>
+                <h1>заполнить простую форму, и заказать такси</h1>
 
                 <div id="note-book"></div>
                 <div id="fields-book">
-                    <form id="ajax-book-form" class="form-horizontal" action="javascript:alert('success!');">
-                        <div class="row">
+<!--                    <form id="ajax-book-form" class="form-horizontal" action="javascript:alert('success!');">-->
+                        <form id="ajax-book-form" class="form-horizontal" action="booking">
+
+                    <div class="row">
                             <div class="span4">
                                 <div class="control-group">
                                     <label class="control-label" for="inputName">Your Name*:</label>
@@ -31,6 +33,14 @@
                                     </div>
                                 </div>
                             </div>
+                        <div class="span4">
+                            <div class="control-group">
+                                <label class="control-label" for="inputName">Location*:</label>
+                                <div class="controls">
+                                    <input class="span4" type="text" id="inputName" name="name" value="Your Name*:" onBlur="if(this.value=='') this.value='Your Name*:'" onFocus="if(this.value =='Your Name*:' ) this.value=''">
+                                </div>
+                            </div>
+                        </div>
                             <div class="span4">
                                 <div class="control-group">
                                     <label class="control-label" for="inputPhone">Your Phone*:</label>
