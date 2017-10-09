@@ -323,6 +323,16 @@ License: You must have a valid license purchased only from themeforest(the above
                             <span class="title">Автомобили</span>
                             <span class="selected"></span>
                         </a>
+                        <?php if($page == 'services'): ?>
+                        <li class="active ">
+                            <?php else: ?>
+                        <li class="">
+                        <?php endif; ?>
+                        <a href="/admin/services">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">Сервисы</span>
+                            <span class="selected"></span>
+                        </a>
                         <?php if($page == 'orders'): ?>
                         <li class="active ">
                         <?php else: ?>

@@ -35,9 +35,9 @@
                     </footer>
                     <div class="social_wrapper">
                         <ul class="social clearfix">
-                            <li><a href="#"><img src="assets/frontend/images/social_ic1.png"></a></li>
-                            <li><a href="#"><img src="assets/frontend/images/social_ic2.png"></a></li>
-                            <li><a href="#"><img src="assets/frontend/images/social_ic3.png"></a></li>
+                            <li><a href="#"><img src="/assets/frontend/images/social_ic1.png"></a></li>
+                            <li><a href="#"><img src="/assets/frontend/images/social_ic2.png"></a></li>
+                            <li><a href="#"><img src="/assets/frontend/images/social_ic3.png"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
 </div>
 
 </div>
-<script type="text/javascript" src="assets/frontend/js/bootstrap.js"></script>
+<script type="text/javascript" src="/assets/frontend/js/bootstrap.js"></script>
 </body>
 
 <!-- Mirrored from demo.gridgum.com/templates/bootstrap-templates/22367/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 08:26:38 GMT -->
