@@ -53,7 +53,10 @@ $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['cars'] = 'home/cars';
-$route['booking'] = 'home/booking';
-$route['services'] = 'home/services';
-$route['contacts'] = 'home/contacts';
+$route['404_override'] = 'my404';
+$route['(\w{2})/cars'] = 'home/cars';
+$route['(\w{2})/booking'] = 'home/booking';
+$route['(\w{2})/services'] = 'home/services';
+$route['(\w{2})/contacts'] = 'home/contacts';
+$route['(\w{2})/(.*)'] = '$2';
+$route['(\w{2})'] = $route['default_controller'];
