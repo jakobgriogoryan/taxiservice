@@ -1,2 +1,2 @@
 <?php
-//$lang['main_email_missing'] = "You must submit an email address";
+$lang['main_home_services_details'] = "Details";

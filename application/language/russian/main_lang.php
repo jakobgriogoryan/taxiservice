@@ -1,3 +1,3 @@
 <?php
-$lang['main_email_missing'] = "Вы аоаоыолфырв";
+$lang['main_home_services_details'] = "Детали";
 

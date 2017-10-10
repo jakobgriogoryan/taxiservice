@@ -94,44 +94,38 @@
                                                     <li><a href="/"><?=$this->lang->line('header_menu_home') ?></a></li>
                                                     <?php endif; ?>
 
-                                                    <?php if(empty($page)): ?>
-                                                    <li class="active"><a href="/<?=$lang?>"><?=$this->lang->line('header_menu_cars')?></a></li>
+                                                    <?php if($page === 'cars'): ?>
+                                                    <li class="active"><a href="/<?=$lang?>/cars"><?=$this->lang->line('header_menu_cars')?></a></li>
                                                     <?php else: ?>
-                                                    <li><a href="/"><?=$this->lang->line('cars') ?></a></li>
+                                                    <li><a href="/<?=$lang?>/cars"><?=$this->lang->line('header_menu_cars') ?></a></li>
                                                     <?php endif; ?>
 
-                                                    <?php if(empty($page)): ?>
-                                                    <li class="active"><a href="/<?=$lang?><?=$this->lang->line('header_menu_booking')?></a></li>
+                                                    <?php if($page === 'booking'): ?>
+                                                    <li class="active"><a href="/<?=$lang?>/booking"><?=$this->lang->line('header_menu_booking')?></a></li>
                                                     <?php else: ?>
-                                                    <li><a href="/"><?=$this->lang->line('header_menu_booking') ?></a></li>
+                                                    <li><a href="/<?=$lang?>/booking"><?=$this->lang->line('header_menu_booking') ?></a></li>
                                                     <?php endif; ?>
 
-                                                    <?php if(empty($page)): ?>
-                                                    <li class="sub-menu sub-menu-1 active"><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?><em></em></a>
+                                                    <?php if(in_array($page,$services_urls)): ?>
+                                                    <li class="sub-menu sub-menu-1 active"><a href="/"><?=$this->lang->line('header_menu_services') ?><em></em></a>
+                                                    <?php else: ?>
+                                                    <li class="sub-menu sub-menu-1"><a href="/"><?=$this->lang->line('header_menu_services') ?><em></em></a>
+                                                    <?php endif; ?>
                                                         <ul>
-                                                            <li><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?></a></li>
-                                                            <li><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?></a></li>
-                                                            <li><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?></a></li>
-                                                            <li><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?></a></li>
-
+                                                            <?php foreach($order_types as $order_type): ?>
+                                                                <?php if($order_type['url'] == $page): ?>
+                                                                    <li class="active"><a href="/<?=$lang?>/<?=$order_type['url'] ?>"><?=$order_type['name'] ?></a></li>
+                                                                <?php else: ?>
+                                                                    <li><a href="/<?=$lang?>/<?=$order_type['url'] ?>"><?=$order_type['name'] ?></a></li>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
                                                         </ul>
                                                     </li>
-                                                    <?php else: ?>
-                                                        <li class="sub-menu sub-menu-1 "><a href="/"><?=$this->lang->line('services') ?><em></em></a>
-                                                            <ul>
-                                                                <li><a href="/"><?=$this->lang->line('header_menu_services') ?></a></li>
-                                                                <li><a href="/"><?=$this->lang->line('header_menu_services') ?></a></li>
-                                                                <li><a href="/"><?=$this->lang->line('header_menu_services') ?></a></li>
-                                                                <li><a href="/"><?=$this->lang->line('header_menu_services') ?></a></li>
-                                                            </ul>
-                                                        </li>
 
-                                                    <?php endif; ?>
-
-                                                    <?php if(empty($page)): ?>
-                                                        <li class="active"><a href="/<?=$lang?><?=$this->lang->line('header_menu_contacts')?></a></li>
+                                                    <?php if($page === 'contacts'): ?>
+                                                        <li class="active"><a href="/<?=$lang?>/contacts"><?=$this->lang->line('header_menu_contacts')?></a></li>
                                                     <?php else: ?>
-                                                        <li><a href=<?=$this->lang->line('header_menu_services')?></a></li>
+                                                        <li><a href="/<?=$lang?>/contacts"><?=$this->lang->line('header_menu_contacts')?></a></li>
                                                     <?php endif; ?>
                                                 </ul>
                                             </div>

@@ -7,11 +7,10 @@ class Home extends  CI_Controller{
         parent::__construct();
         $language =& $this->config->config['language'];
         $this->language = $language;
-        $this->lang->load('main_lang', $language);
+        $this->load->model('order_type_model');
     }
 
     public function index(){
-//        print_r($this->lang->line('main_email_missing'));die;
         $this->load->template('home');
     }
 
@@ -48,11 +47,12 @@ class Home extends  CI_Controller{
                 redirect('/admin/booking');
             }
         }
-        print_r('asdasd');die;
     }
 
-    public function services(){
-        $this->load->template('services');
+    public function services($page){
+        $service = $this->order_type_model->getByUrl($page);
+
+        $this->load->template('services',['service' => $service]);
     }
 
     public function contacts(){

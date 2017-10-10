@@ -31,6 +31,49 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label" for="name_en">Имя</label>
+                                    <?php if(isset($_POST['name_en'])): ?>
+                                        <input class="form-control" type="text" placeholder="Имя" value="<?= $_POST['name_en'] ?>" name="name_en"/>
+                                    <?php else: ?>
+                                        <input class="form-control" type="text" placeholder="Имя" value="<?=$car[0]->name_en ?>" name="name_en"/>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label " for="min_description">Краткое описание (По Русский)</label>
+                                    <?php if(isset($_POST['min_description'])): ?>
+                                        <textarea name="min_description" rows="5" class="form-control"><?=$_POST['min_description'] ?></textarea>
+                                    <?php else: ?>
+                                        <textarea name="min_description" rows="5" class="form-control"><?=$car[0]->min_description ?></textarea>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label " for="min_description_en">Краткое описание (English)</label>
+                                    <?php if(isset($_POST['min_description_en'])): ?>
+                                        <textarea name="min_description_en" rows="5" class="form-control"><?=$_POST['min_description_en'] ?></textarea>
+                                    <?php else: ?>
+                                        <textarea name="min_description_en" rows="5" class="form-control"><?=$car[0]->min_description_en ?></textarea>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label " for="description">Описание (По Русский)</label>
+                                    <?php if(isset($_POST['description'])): ?>
+                                        <textarea name="description" rows="10" class="form-control"><?=$_POST['description'] ?></textarea>
+                                    <?php else: ?>
+                                        <textarea name="description" rows="10" class="form-control"><?=$car[0]->description ?></textarea>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label " for="description_en">Описание (English)</label>
+                                    <?php if(isset($_POST['description_en'])): ?>
+                                        <textarea name="description_en" rows="10" class="form-control"><?=$_POST['description_en'] ?></textarea>
+                                    <?php else: ?>
+                                        <textarea name="description_en" rows="10" class="form-control"><?=$car[0]->description_en ?></textarea>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label">Посадочные места</label>
                                     <select name="passengers_count" class="form-control">
                                     <?php foreach($passengers_count as $count): ?>

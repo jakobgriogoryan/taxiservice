@@ -23,11 +23,54 @@
                             <form class="register-form" action="<?= base_url()?>admin/cars/create" method="post" enctype="multipart/form-data">
                                 <?php echo validation_errors(); ?>
                                 <div class="form-group">
-                                    <label class="control-label" for="name">Имя</label>
+                                    <label class="control-label" for="name">Имя (По Русский)</label>
                                     <?php if(isset($_POST['name'])): ?>
-                                        <input class="form-control" type="text" placeholder="Имя" value="<?= $_POST['name'] ?>" name="name" id="name"/>
+                                        <input class="form-control" type="text" value="<?= $_POST['name'] ?>" name="name" id="name"/>
                                     <?php else: ?>
-                                        <input class="form-control" type="text" placeholder="Имя" value="" name="name" id="name"/>
+                                        <input class="form-control" type="text" value="" name="name" id="name"/>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="name_en">Имя (English)</label>
+                                    <?php if(isset($_POST['name_en'])): ?>
+                                        <input class="form-control" type="text" value="<?= $_POST['name_en'] ?>" name="name_en" />
+                                    <?php else: ?>
+                                        <input class="form-control" type="text" value="" name="name_en" />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label " for="min_description">Краткое описание (По Русский)</label>
+                                    <?php if(isset($_POST['min_description'])): ?>
+                                        <textarea name="min_description" rows="5" class="form-control"><?=$_POST['min_description'] ?></textarea>
+                                    <?php else: ?>
+                                        <textarea name="min_description" rows="5" class="form-control"><?=$service[0]->min_description ?></textarea>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label " for="min_description_en">Краткое описание (English)</label>
+                                    <?php if(isset($_POST['min_description_en'])): ?>
+                                        <textarea name="min_description_en" rows="5" class="form-control"><?=$_POST['min_description_en'] ?></textarea>
+                                    <?php else: ?>
+                                        <textarea name="min_description_en" rows="5" class="form-control"></textarea>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label " for="description">Описание (По Русский)</label>
+                                    <?php if(isset($_POST['description'])): ?>
+                                        <textarea name="description" rows="10" class="form-control"><?=$_POST['description'] ?></textarea>
+                                    <?php else: ?>
+                                        <textarea name="description" rows="10" class="form-control"></textarea>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label " for="description_en">Описание (English)</label>
+                                    <?php if(isset($_POST['description_en'])): ?>
+                                        <textarea name="description_en" rows="10" class="form-control"><?=$_POST['description_en'] ?></textarea>
+                                    <?php else: ?>
+                                        <textarea name="description_en" rows="10" class="form-control"></textarea>
                                     <?php endif; ?>
                                 </div>
                                 <div class="form-group">
@@ -82,7 +125,12 @@
 
                                 <h3>Выберите картинку:</h3>
                                 <?php for($i = 1; $i <= 10; $i++): ?>
-                                <input type="file" name="image_<?=$i ?>">
+                                    <input type="file" name="image_<?=$i ?>">
+                                    <div class="checkbox-list">
+                                        <label>
+                                            <div class="checker"><span class="checked"><input type="checkbox" name="main_image_<?=$i ?>"></span></div> Сделать главным
+                                        </label>
+                                    </div>
                                 <?php endfor; ?>
 
                                 <div class="form-actions">
