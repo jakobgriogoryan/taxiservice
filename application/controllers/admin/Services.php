@@ -8,6 +8,8 @@ class Services extends CI_Controller{
         if(!isset($session['email'])){
             redirect(base_url().'admin/auth');
         }
+        $this->load->model('order_type_model');
+
     }
 
     public function index(){
@@ -16,8 +18,10 @@ class Services extends CI_Controller{
     }
 
     public function edit($id){
+        $service = $this->order_type_model->getById($id);
         if ($this->input->method() == 'post') {
-            $this->form_validation->set_rules('name', 'Заполните Имя', 'required');
+            $this->form_validation->set_rules('name', 'Заполните Имя (По Русский)', 'required');
+            $this->form_validation->set_rules('name_en', 'Заполните Имя (English', 'required');
             $this->form_validation->set_rules('min_description', 'Заполните Краткое описание (По Русский)', 'required');
             $this->form_validation->set_rules('min_description_en', 'Заполните Краткое описание (English)', 'required');
             $this->form_validation->set_rules('description', 'Заполните Описание (По Русский)', 'required');
@@ -31,9 +35,33 @@ class Services extends CI_Controller{
 
             if ($this->form_validation->run() !== FALSE){
 
+                $data = array(
+                    'name' => $this->input->post('name'),
+                    'name_en' => $this->input->post('name_en'),
+                    'min_description' => $this->input->post('min_description'),
+                    'min_description_en' => $this->input->post('min_description_en'),
+                    'description' => $this->input->post('description'),
+                    'description_en' => $this->input->post('description_en'),
+                );
+                $config['upload_path']          = 'assets/images/services/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                $config['encrypt_name'] = TRUE;
+//                $config['max_width']            = 1024;
+//                $config['max_height']           = 768;
+
+                $this->load->library('upload', $config);
+                if (  $image = $this->upload->do_upload('image'))
+                {
+                        if(!empty($service[0]->image)){
+                            unlink('assets/images/services/'.$service[0]->image);
+                        }
+                        $data['image'] = $this->upload->data('file_name');
+
+                }
+                $this->order_type_model->edit($data,$id);
+                redirect('/admin/services');
             }
         }
-        $service = $this->order_type_model->getById($id);
         $this->load->template('admin/services/edit',['service' => $service, 'id' => $id]);
     }
 }

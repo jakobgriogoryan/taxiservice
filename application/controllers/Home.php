@@ -23,23 +23,22 @@ class Home extends  CI_Controller{
     public function booking($data){
 
         if ($this->input->method() == 'post') {
-            $this->form_validation->set_rules('name', 'Заполните Имя', 'required');
-            $this->form_validation->set_rules('location', 'место нахождения ', 'required');
-            $this->form_validation->set_rules('where_to', 'куда', 'required|integer');
-            $this->form_validation->set_rules('phone', 'Телефон', 'required|integer');
-            $this->form_validation->set_rules('email', 'Эл. адрес', 'required|integer');
-            $this->form_validation->set_rules('datatime', 'время данных', 'required|integer');
-            $this->form_validation->set_rules('status', 'статус', 'required|integer');
-
+            $this->form_validation->set_rules('name', 'Name', 'required');
+            $this->form_validation->set_rules('location', 'Location ', 'required');
+            $this->form_validation->set_rules('where_to', 'Where', 'required|integer');
+            $this->form_validation->set_rules('phone', 'Phone', 'required|integer');
+            $this->form_validation->set_rules('email', 'Email', 'required|integer');
+            $this->form_validation->set_rules('datetime', 'Date', 'required|integer');
+            $this->form_validation->set_rules('status', 'Status', 'required|integer');
             if ($this->form_validation->run() !== FALSE){
 
                 $data = array(
-                    'name' => $this->input->post('name'),
+                    'name' => $this->  input-> post('name'),
                     'location' => $this->input->post('location'),
                     'where_to' => $this->input->post('where_to'),
-                    'phone' =>($this->input->post('phone')),
+                    'phone' =>  $this->input->post('phone'),
                     'email' => $this->input->post('email'),
-                    'datatime' => $this->input->post('datatime'),
+                    'datetime' => $this->input->post('datetime'),
                     'status' => $this->input->post('status')
                 );
                 $this->load->model('booking_model');
@@ -48,8 +47,8 @@ class Home extends  CI_Controller{
                 $this->load->template('booking');
                 redirect('/admin/booking');
             }
-
         }
+        print_r('asdasd');die;
     }
 
     public function services(){

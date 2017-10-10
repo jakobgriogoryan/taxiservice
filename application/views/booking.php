@@ -146,10 +146,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
                         </div>
 
                         <div class="button2_wrapper"><a href="#" class="button2"><span class="over1"></span><span class="t1">details</span><span class="over2"></span></a></div>
@@ -157,11 +153,6 @@
                     </div>
                     <div class="box1_corner"></div>
                 </div>
-
-
-
-
-
             </div>
         </div>
     </div>

@@ -38,7 +38,7 @@
                             <?php foreach($services as $service): ?>
                                 <tr class="odd gradeX">
                                     <td><?=$service->name ?></td>
-                                    <td><img src="/assets/images/services/<?=$service->image ?>" class="img-responsive"></td>
+                                    <td><img src="/assets/images/services/<?=$service->image ?>" height="100" class=""></td>
                                     <td><?=$service->min_description ?></td>
                                     <td>
                                         <a href="/admin/services/edit/<?=$service->id?>" title="Редактировать"><i class="fa fa-pencil"></i></a>

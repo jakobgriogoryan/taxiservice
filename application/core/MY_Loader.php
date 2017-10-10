@@ -27,6 +27,9 @@ class MY_Loader extends CI_Loader {
                     $vars['title'] = $ci->lang->line('header_home_title');
                 }
                 $vars['lang'] = $lang_prefix;
+
+                $ci->load->model('order_type_model');
+                $order_types = $ci->order_type_model->selectAll();
             }
             $vars['page'] = $page;
             $vars['error404'] = $error404;

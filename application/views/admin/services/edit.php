@@ -23,11 +23,20 @@
                             <form class="register-form" action="<?= base_url()?>admin/services/edit/<?=$id ?>" method="post" enctype="multipart/form-data">
                                 <?php echo validation_errors(); ?>
                                 <div class="form-group">
-                                    <label class="control-label" for="name">Имя</label>
+                                    <label class="control-label" for="name">Имя (По Русский)</label>
                                     <?php if(isset($_POST['name'])): ?>
-                                        <input class="form-control" type="text" placeholder="Имя" value="<?= $_POST['name'] ?>" name="name" id="name"/>
+                                        <input class="form-control" type="text" placeholder="Имя (По Русский)" value="<?= $_POST['name'] ?>" name="name"/>
                                     <?php else: ?>
-                                        <input class="form-control" type="text" placeholder="Имя" value="<?=$service[0]->name ?>" name="name" id="name"/>
+                                        <input class="form-control" type="text" placeholder="Имя (По Русский)" value="<?=$service[0]->name ?>" name="name"/>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="name">Имя (English)</label>
+                                    <?php if(isset($_POST['name_en'])): ?>
+                                        <input class="form-control" type="text" placeholder="Имя (English)" value="<?= $_POST['name_en'] ?>" name="name_en" />
+                                    <?php else: ?>
+                                        <input class="form-control" type="text" placeholder="Имя (English)" value="<?=$service[0]->name_en ?>" name="name_en"/>
                                     <?php endif; ?>
                                 </div>
 
@@ -72,8 +81,7 @@
                                 <div class="row">
                                     <?php if(!empty($service[0]->image)): ?>
                                         <div class="col-md-4">
-                                            <a href="javascript:;" data-id="<?=$service[0]->id ?>" data-image="<?=$service[0]->image ?>" class="remove-service-image" style="color:red"><i class="fa fa-remove"></i></a>
-                                            <img class="img-responsive" src="/assets/images/cars/<?=$service[0]->image ?>">
+                                            <img class="img-responsive" src="/assets/images/services/<?=$service[0]->image ?>">
                                         </div>
                                     <?php endif; ?>
                                 </div>

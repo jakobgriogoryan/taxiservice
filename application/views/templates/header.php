@@ -94,43 +94,44 @@
                                                     <li><a href="/"><?=$this->lang->line('header_menu_home') ?></a></li>
                                                     <?php endif; ?>
 
-                                                    <?php if($page == 'cars'): ?>
-                                                    <li class="active"><a href="/<?=$lang?>/cars">Our cars</a></li>
+                                                    <?php if(empty($page)): ?>
+                                                    <li class="active"><a href="/<?=$lang?>"><?=$this->lang->line('header_menu_cars')?></a></li>
                                                     <?php else: ?>
-                                                    <li><a href="/<?=$lang?>/cars">Our cars</a></li>
+                                                    <li><a href="/"><?=$this->lang->line('cars') ?></a></li>
                                                     <?php endif; ?>
 
-                                                    <?php if($page == 'booking'): ?>
-                                                    <li class="active"><a href="/<?=$lang?>/booking">Book online</a></li>
+                                                    <?php if(empty($page)): ?>
+                                                    <li class="active"><a href="/<?=$lang?><?=$this->lang->line('header_menu_booking')?></a></li>
                                                     <?php else: ?>
-                                                    <li><a href="/<?=$lang?>/booking">Booking online</a></li>
+                                                    <li><a href="/"><?=$this->lang->line('header_menu_booking') ?></a></li>
                                                     <?php endif; ?>
 
-                                                    <?php if($page == 'services'): ?>
-                                                    <li class="sub-menu sub-menu-1 active"><a href="services">Services<em></em></a>
+                                                    <?php if(empty($page)): ?>
+                                                    <li class="sub-menu sub-menu-1 active"><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?><em></em></a>
                                                         <ul>
-                                                            <li><a href="services">Taxi service</a></li>
-                                                            <li><a href="services">Limo service</a></li>
-                                                            <li><a href="services">Airport pickup service</a></li>
-                                                            <li><a href="services">Airport pickup service</a></li>
+                                                            <li><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?></a></li>
+                                                            <li><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?></a></li>
+                                                            <li><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?></a></li>
+                                                            <li><a href="/<?=$lang?><?=$this->lang->line('header_menu_services')?></a></li>
+
                                                         </ul>
                                                     </li>
                                                     <?php else: ?>
-                                                        <li class="sub-menu sub-menu-1 "><a href="services">Services<em></em></a>
+                                                        <li class="sub-menu sub-menu-1 "><a href="/"><?=$this->lang->line('services') ?><em></em></a>
                                                             <ul>
-                                                                <li><a href="services">Taxi service</a></li>
-                                                                <li><a href="services">Limo service</a></li>
-                                                                <li><a href="services">Airport pickup service</a></li>
-                                                                <li><a href="services">Airport pickup service</a></li>
+                                                                <li><a href="/"><?=$this->lang->line('header_menu_services') ?></a></li>
+                                                                <li><a href="/"><?=$this->lang->line('header_menu_services') ?></a></li>
+                                                                <li><a href="/"><?=$this->lang->line('header_menu_services') ?></a></li>
+                                                                <li><a href="/"><?=$this->lang->line('header_menu_services') ?></a></li>
                                                             </ul>
                                                         </li>
 
                                                     <?php endif; ?>
 
-                                                    <?php if($page == 'contacts'): ?>
-                                                        <li class="active"><a href="contacts">Contacts</a></li>
+                                                    <?php if(empty($page)): ?>
+                                                        <li class="active"><a href="/<?=$lang?><?=$this->lang->line('header_menu_contacts')?></a></li>
                                                     <?php else: ?>
-                                                        <li><a href="/contacts">Contacts</a></li>
+                                                        <li><a href=<?=$this->lang->line('header_menu_services')?></a></li>
                                                     <?php endif; ?>
                                                 </ul>
                                             </div>
@@ -151,26 +152,26 @@
             <div class="slider_px2"></div>
             <div class="order1">
                 <div class="txt1">
-                    Закажите TAXI сейчас! Вызов:</div>
+                    Order TAXI now! Call:</div>
                 <div class="txt2">1 800 123 4567</div>
             </div>
             <div id="camera_wrap">
                 <div data-src="/assets/frontend/images/slide01.jpg">
                     <div class="camera_caption fadeIn">
-                        <div class="txt1">Мы отвезем вас туда</div>
-                        <div class="txt2">где вам нужно</div>
+                        <div class="txt1">We will take you</div>
+                        <div class="txt2">wherever you need</div>
                     </div>
                 </div>
                 <div data-src="/assets/frontend/images/slide02.jpg">
                     <div class="camera_caption fadeIn">
-                        <div class="txt1">Мы отвезем вас туда</div>
-                        <div class="txt2">где вам нужно</div>
+                        <div class="txt1">We will take you</div>
+                        <div class="txt2">wherever you need</div>
                     </div>
                 </div>
                 <div data-src="/assets/frontend/images/slide03.jpg">
                     <div class="camera_caption fadeIn">
-                        <div class="txt1">Мы отвезем вас туда</div>
-                        <div class="txt2">где вам нужно</div>
+                        <div class="txt1">We will take you</div>
+                        <div class="txt2">wherever you need</div>
                     </div>
                 </div>
             </div>
