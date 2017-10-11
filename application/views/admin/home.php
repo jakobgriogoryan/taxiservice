@@ -8,59 +8,69 @@
             <div class="portlet-body">
                 <div class="row">
                     <div class="col-md-12 blog-page">
-                        <div class="row">
-                            <div class="col-md-9 col-sm-8 article-block">
-                                <?php foreach ($cars as $car):?>
-                                    <h1 style="margin-top:0px"><?=$car->name?></h1>
-                                <div class="row">
-                                    <div class="col-md-4 blog-img blog-tag-data">
-                                        <img src="../../assets/admin/pages/media/gallery/image4.jpg" alt="" class="img-responsive">
-                                        <th class="list-inline">
-                                            <tr>
-                                                <h3><i class="">Посадочные места <?=$car->passengers_count?> </i></h3>
-                                            </tr>
-                                            <tr>
-                                                <h3><i class="">Минимальный заказ <?=$car->minimum_order?> руб.</i></h3>
-                                            </tr>
-                                            <tr>
-                                                <h3><i class="">Далее <?=$car->further?> руб.</i></h3>
-                                            </tr>
-                                            <tr>
-                                                <h3><i class="">За МКАД <?=$car->for_mkad?> руб.</i></h3>
-                                            </tr>
-                                            <tr>
-                                                <h3><i class="">Свыше 200км от МКАД  <?=$car->Over_200km?> руб.</i></h3>
-                                            </tr>
-                                        </th>
-                                        <ul class="list-inline blog-tags">
-                                            <li>
-                                                <i class="fa fa-tags"></i>
-                                                <a href="#">
-                                                    Technology </a>
-                                                <a href="#">
-                                                    Education </a>
-                                                <a href="#">
-                                                    Internet </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-8 blog-article">
-                                        <h3>
-                                            <a href="page_blog_item.html">
-                                                Hello here will be some recent news.. </a>
-                                        </h3>
-                                        <p>
-                                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.
-                                        </p>
-                                        <a class="btn blue" href="page_blog_item.html">
-                                            Read more <i class="m-icon-swapright m-icon-white"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <?php endforeach;?>
-                                <hr>
+                        <div class="col-md-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet box grey-cascade">
 
+
+                                <?php foreach ($cars as $car): ?>
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover datatable">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                Имя
+                                            </th>
+                                            <th>
+                                                Посад.мест
+                                            </th>
+                                            <th>
+                                                Минимальный заказ
+                                            </th>
+                                            <th>
+                                                Далее
+                                            </th>
+                                            <th>
+                                                За МКАД
+                                            </th>
+                                            <th>
+                                                Свыше 200км от МКАД
+                                            </th>
+                                            <div class="col-md-8 blog-article">
+                                                <h3>
+                                                    <a href="page_blog_item.html">
+                                                        <?=$car->min_description?> </a>
+                                                </h3>
+                                                <p><?=$car->description?></p>
+                                            </div>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr class="odd gradeX">
+                                                <td><?= $car->name ?></td>
+                                                <td><?= $car->passengers_count ?></td>
+                                                <td><?= $car->minimum_order ?></td>
+                                                <td><?= $car->further ?></td>
+                                                <td><?= $car->for_mkad ?></td>
+                                                <td><?= $car->over_200km ?></td>
+                                                <td>
+                                                    <button class="btn watch-cars-images" data-id="<?= $car->id ?>">
+                                                        Посмотреть картинки
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                        <div class="row">
+
                             <!--end col-md-9-->
                             <!--end col-md-3-->
                         </div>
@@ -108,3 +118,50 @@
     </div>
 </div>
 
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <!-- END PAGE HEADER-->
+        <div class="row">
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="watchCarsImages" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Картинки</h4>
+            </div>
+            <div class="modal-body">
+                <div id="carCarousel" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#carCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -9,3 +9,6 @@ $lang['header_menu_cars'] = "Машины";
 $lang['header_menu_booking'] = "Забронировать онлайн";
 $lang['header_menu_services'] = "Сервисы";
 $lang['header_menu_contacts'] = "Контакты";
+$lang['header_call'] = "Закажите TAXI сейчас! Вызов:";
+$lang['header_menu_title1'] = "Мы отвезем вас туда";
+$lang['header_menu_title2'] = "где вам нужно.";

@@ -1,8 +1,8 @@
 <?php
 
-class Home extends CI_Controller
-{
 
+class Contacts extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
@@ -12,12 +12,7 @@ class Home extends CI_Controller
         }
     }
 
-    public function index()
-    {
-        $this->load->model('cars_model');
-        $cars = $this->cars_model->selectAll();
-        $this->load->template('admin/home', ['cars' => $cars]);
+    public function contacts(){
+
     }
-
-
 }

@@ -9,3 +9,6 @@ $lang['header_menu_cars'] = "Cars";
 $lang['header_menu_booking'] = "Booking online";
 $lang['header_menu_services'] = "Services";
 $lang['header_menu_contacts'] = "Contacts";
+$lang['header_call'] = "Order TAXI now! Call:";
+$lang['header_menu_title1'] = "We will take you";
+$lang['header_menu_title2'] = "wherever you need";

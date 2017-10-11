@@ -317,7 +317,7 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
 #ajax-book-form .control-group{margin-bottom: 10px;}
 #ajax-book-form .control-label{display: none;}
 #ajax-book-form .controls{margin-left: 0;}
-#ajax-book-form input, #ajax-book-form textarea{background: #f4f4f4; border: 1px solid #e1e1e1; color: #636363; padding-top: 10px; padding-bottom: 10px; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px; -moz-box-shadow: inset  0px 3px 20px 3px  #f4f4f4; -webkit-box-shadow: inset  0px 3px 20px 3px  #f4f4f4; box-shadow: inset  0px 3px 20px 3px  #f4f4f4;}
+#ajax-book-form input, #ajax-book-form textarea, #ajax-book-form select{background: #f4f4f4;height: auto; border: 1px solid #e1e1e1; color: #636363; padding-top: 10px; padding-bottom: 10px; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px; -moz-box-shadow: inset  0px 3px 20px 3px  #f4f4f4; -webkit-box-shadow: inset  0px 3px 20px 3px  #f4f4f4; box-shadow: inset  0px 3px 20px 3px  #f4f4f4;}
 #ajax-book-form input.optionsRadios{-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;}
 #ajax-book-form .labelRadios{ margin-top: 7px; margin-bottom: 10px;}
 #ajax-book-form input:focus, #ajax-book-form textarea:focus{border-color:#8b8b8b; }

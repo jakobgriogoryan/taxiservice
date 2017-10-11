@@ -38,7 +38,7 @@
                                     Телефон
                                 </th>
                                 <th>
-                                    Емаил
+                                    Эл. адрес
                                 </th>
                                 <th>
                                     Статус
@@ -53,17 +53,17 @@
                             </thead>
                             <tbody>
 
-                            <?php foreach($orders as $order): ?>
+                            <?php foreach ($orders as $order): ?>
                                 <tr class="odd gradeX">
-                                    <td><?=$order->order_type ?></td>
-                                    <td><?=$order->location ?></td>
-                                    <td><?=$order->where_to ?></td>
-                                    <td><?=$order->date ?></td>
-                                    <td><?=$order->name ?></td>
-                                    <td><?=$order->phone ?></td>
-                                    <td><?=$order->email ?></td>
-                                    <td><?=$status[$order->status] ?></td>
-                                    <td><?=$car->create_at ?></td>
+                                    <td><?= $order->order_type ?></td>
+                                    <td><?= $order->location ?></td>
+                                    <td><?= $order->where_to ?></td>
+                                    <td><?= $order->datetime ?></td>
+                                    <td><?= $order->name ?></td>
+                                    <td><?= $order->phone ?></td>
+                                    <td><?= $order->email ?></td>
+                                    <td><?= $status[$order->status] ?></td>
+                                    <td><?= $order->create_at ?></td>
                                     <td>
 
                                     </td>

@@ -20,7 +20,7 @@
                                 <div class="col-md-6">
                                     <div class="btn-group">
                                         <a id="sample_editable_1_new" href="/admin/cars/create" class="btn green">
-                                            Дабавить  <i class="fa fa-plus"></i>
+                                            Дабавить <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -57,19 +57,23 @@
                             </thead>
                             <tbody>
 
-                            <?php foreach($cars as $car): ?>
+                            <?php foreach ($cars as $car): ?>
                                 <tr class="odd gradeX">
-                                    <td><?=$car->name ?></td>
-                                    <td><?=$car->passengers_count ?></td>
-                                    <td><?=$car->minimum_order ?></td>
-                                    <td><?=$car->further ?></td>
-                                    <td><?=$car->for_mkad ?></td>
-                                    <td><?=$car->over_200km ?></td>
-                                    <td><?=$car->create_at ?></td>
+                                    <td><?= $car->name ?></td>
+                                    <td><?= $car->passengers_count ?></td>
+                                    <td><?= $car->minimum_order ?></td>
+                                    <td><?= $car->further ?></td>
+                                    <td><?= $car->for_mkad ?></td>
+                                    <td><?= $car->over_200km ?></td>
+                                    <td><?= $car->create_at ?></td>
                                     <td>
-                                        <a href="/admin/cars/edit/<?=$car->id?>" title="Редактировать"><i class="fa fa-pencil"></i></a>
-                                        <button title="Удалить" class="delete-car" data-id="<?=$car->id ?>"><i class="fa fa-remove"></i></button>
-                                        <button class="btn watch-cars-images" data-id="<?=$car->id ?>">Посмотреть картинки</button>
+                                        <a href="/admin/cars/edit/<?= $car->id ?>" title="Редактировать"><i
+                                                    class="fa fa-pencil"></i></a>
+                                        <button title="Удалить" class="delete-car" data-id="<?= $car->id ?>"><i
+                                                    class="fa fa-remove"></i></button>
+                                        <button class="btn watch-cars-images" data-id="<?= $car->id ?>">Посмотреть
+                                            картинки
+                                        </button>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

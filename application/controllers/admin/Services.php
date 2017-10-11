@@ -1,23 +1,27 @@
 <?php
-class Services extends CI_Controller{
+
+class Services extends CI_Controller
+{
 
     public function __construct()
     {
         parent::__construct();
         $session = $this->session->all_userdata();
-        if(!isset($session['email'])){
-            redirect(base_url().'admin/auth');
+        if (!isset($session['email'])) {
+            redirect(base_url() . 'admin/auth');
         }
         $this->load->model('order_type_model');
 
     }
 
-    public function index(){
+    public function index()
+    {
         $services = $this->order_type_model->selectAll();
-        $this->load->template('admin/services/index',['services' => $services]);
+        $this->load->template('admin/services/index', ['services' => $services]);
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $service = $this->order_type_model->getById($id);
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules('name', 'Заполните Имя (По Русский)', 'required');
@@ -26,14 +30,13 @@ class Services extends CI_Controller{
             $this->form_validation->set_rules('min_description_en', 'Заполните Краткое описание (English)', 'required');
             $this->form_validation->set_rules('description', 'Заполните Описание (По Русский)', 'required');
             $this->form_validation->set_rules('description_en', 'Заполните Описание (English)', 'required');
-            if (empty($_FILES['image']))
-            {
-                $this->form_validation->set_rules('image','Вы должны загрузить хотя бы одну картинку','required');
+            if (empty($_FILES['image'])) {
+                $this->form_validation->set_rules('image', 'Вы должны загрузить хотя бы одну картинку', 'required');
             }
-            $this->form_validation->set_message('required','%s');
-            $this->form_validation->set_message('integer','%s (Число)');
+            $this->form_validation->set_message('required', '%s');
+            $this->form_validation->set_message('integer', '%s (Число)');
 
-            if ($this->form_validation->run() !== FALSE){
+            if ($this->form_validation->run() !== FALSE) {
 
                 $data = array(
                     'name' => $this->input->post('name'),
@@ -43,25 +46,24 @@ class Services extends CI_Controller{
                     'description' => $this->input->post('description'),
                     'description_en' => $this->input->post('description_en'),
                 );
-                $config['upload_path']          = 'assets/images/services/';
-                $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                $config['upload_path'] = 'assets/images/services/';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
                 $config['encrypt_name'] = TRUE;
 //                $config['max_width']            = 1024;
 //                $config['max_height']           = 768;
 
                 $this->load->library('upload', $config);
-                if (  $image = $this->upload->do_upload('image'))
-                {
-                        if(!empty($service[0]->image)){
-                            unlink('assets/images/services/'.$service[0]->image);
-                        }
-                        $data['image'] = $this->upload->data('file_name');
+                if ($image = $this->upload->do_upload('image')) {
+                    if (!empty($service[0]->image)) {
+                        unlink('assets/images/services/' . $service[0]->image);
+                    }
+                    $data['image'] = $this->upload->data('file_name');
 
                 }
-                $this->order_type_model->edit($data,$id);
+                $this->order_type_model->edit($data, $id);
                 redirect('/admin/services');
             }
         }
-        $this->load->template('admin/services/edit',['service' => $service, 'id' => $id]);
+        $this->load->template('admin/services/edit', ['service' => $service, 'id' => $id]);
     }
 }

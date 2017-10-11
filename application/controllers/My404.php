@@ -1,4 +1,5 @@
 <?php
+
 class My404 extends CI_Controller
 {
     public function __construct()
@@ -9,6 +10,6 @@ class My404 extends CI_Controller
     public function index()
     {
         $this->output->set_status_header('404');
-        $this->load->template('err404',array(),false,true);//loading in custom error view
+        $this->load->template('err404', array(), false, true);//loading in custom error view
     }
 }

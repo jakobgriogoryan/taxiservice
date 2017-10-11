@@ -1,7 +1,10 @@
 <?php
-class Home extends  CI_Controller{
+
+class Home extends CI_Controller
+{
 
     protected $language;
+
     public function __construct()
     {
         parent::__construct();
@@ -10,52 +13,84 @@ class Home extends  CI_Controller{
         $this->load->model('order_type_model');
     }
 
-    public function index(){
+    public function index()
+    {
         $this->load->template('home');
     }
 
-    public function cars(){
+    public function cars()
+    {
 
         $this->load->template('cars');
     }
 
-    public function booking($data){
+    public function booking()
+    {
+
+        $this->load->model('booking_model');
+
+        if ($this->input->method() == 'post') {
+            $this->form_validation->set_rules('order_type_id', 'Order type', 'required');
+            $this->form_validation->set_rules('name', 'Name', 'required');
+            $this->form_validation->set_rules('location', 'Location', 'required');
+            $this->form_validation->set_rules('where_to', 'Destination item', 'required');
+            $this->form_validation->set_rules('phone', 'Phone', 'required|integer');
+            $this->form_validation->set_rules('email', 'Email', 'required');
+            $this->form_validation->set_rules('datetime', 'Date', 'required');
+            $this->form_validation->set_rules('notes', 'Notes');
+
+            if ($this->form_validation->run() !== FALSE) {
+
+                $data = array(
+                    'order_type_id' => $this->input->post('order_type_id'),
+                    'name' => $this->input->post('name'),
+                    'location' => $this->input->post('location'),
+                    'where_to' => $this->input->post('where_to'),
+                    'phone' => $this->input->post('phone'),
+                    'email' => $this->input->post('email'),
+                    'datetime' => $this->input->post('datetime'),
+                    'status' => 1,
+                    'notes' => $this->input->post('notes')
+                );
+
+                $this->booking_model->booking($data);
+                redirect($this->load->template('booking'));
+            }
+        }
+        $this->load->template('booking');
+
+    }
+
+    public function services($page)
+    {
+        $service = $this->order_type_model->getByUrl($page);
+
+        $this->load->template('services', ['service' => $service]);
+    }
+
+
+
+        public function contacts(){
 
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('location', 'Location ', 'required');
-            $this->form_validation->set_rules('where_to', 'Where', 'required|integer');
-            $this->form_validation->set_rules('phone', 'Phone', 'required|integer');
-            $this->form_validation->set_rules('email', 'Email', 'required|integer');
-            $this->form_validation->set_rules('datetime', 'Date', 'required|integer');
-            $this->form_validation->set_rules('status', 'Status', 'required|integer');
-            if ($this->form_validation->run() !== FALSE){
+            $this->form_validation->set_rules('email', 'Email', 'required');
+            $this->form_validation->set_rules('phone_number', 'Phone number', 'required');
+            $this->form_validation->set_rules('message', 'Message', 'required');
+
+            if ($this->form_validation->run() !== FALSE) {
 
                 $data = array(
-                    'name' => $this->  input-> post('name'),
-                    'location' => $this->input->post('location'),
-                    'where_to' => $this->input->post('where_to'),
-                    'phone' =>  $this->input->post('phone'),
+                    'name' => $this->input->post('name'),
                     'email' => $this->input->post('email'),
-                    'datetime' => $this->input->post('datetime'),
-                    'status' => $this->input->post('status')
-                );
-                $this->load->model('booking_model');
-                $booking_id = $this->booking_model->booking($data);
+                    'phone_number' => $this->input->post('phone_number'),
+                    'message' => $this->input->post('message'));
 
-                $this->load->template('booking');
-                redirect('/admin/booking');
+                $this->load->model('contacts_model');
+                $this->contacts_model->index($data);
             }
         }
-    }
 
-    public function services($page){
-        $service = $this->order_type_model->getByUrl($page);
-
-        $this->load->template('services',['service' => $service]);
-    }
-
-    public function contacts(){
         $this->load->template('contacts');
     }
 

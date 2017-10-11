@@ -1,4 +1,3 @@
-
 <div class="bot1">
     <div class="container">
         <div class="row">
@@ -6,16 +5,17 @@
                 <div class="bot1_inner clearfix">
                     <div class="menu_bot">
                         <ul id="menu_bot" class="clearfix">
-                            <li><a href="home">home</a></li>
-                            <li><a href="cars">our cars</a></li>
-                            <li><a href="booking">book online</a></li>
-                            <li><a href="services">services</a></li>
-                            <li><a href="contacts">contacts</a></li>
+                            <li><a href="home">Home</a></li>
+                            <li><a href="cars">Our cars</a></li>
+                            <li><a href="booking">Book online</a></li>
+                            <li><a href="services">Services</a></li>
+                            <li><a href="contacts">Contacts</a></li>
                         </ul>
                     </div>
                     <div class="search-form-wrapper clearfix">
-                        <form id="search-form" method="GET" accept-charset="utf-8" class="navbar-form" >
-                            <input type="text" name="s" value='Search' onBlur="if(this.value=='') this.value='Search'" onFocus="if(this.value =='Search' ) this.value=''">
+                        <form id="search-form" method="GET" accept-charset="utf-8" class="navbar-form">
+                            <input type="text" name="s" value='Search' onBlur="if(this.value=='') this.value='Search'"
+                                   onFocus="if(this.value =='Search' ) this.value=''">
                             <a href="#" onClick="document.getElementById('search-form').submit()"></a>
                         </form>
                     </div>
@@ -30,7 +30,9 @@
             <div class="span12">
                 <div class="bot2_inner clearfix">
                     <footer>
-                        <div class="copyright">Copyright   © 2016. All rights reserved.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Privacy policy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Mail Us</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Site map</a>
+                        <div class="copyright">Copyright © 2016. All rights reserved.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
+                                    href="#">Privacy policy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Mail
+                                Us</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Site map</a>
                         </div>
                     </footer>
                     <div class="social_wrapper">

@@ -10,8 +10,10 @@ Like: www.facebook.com/keenthemes
 Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en" class="no-js">
 <!--<![endif]-->
@@ -24,27 +26,37 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet"
+          type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-    <link href="<?= base_url()?>/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet"
+          type="text/css"/>
     <!-- END PAGE LEVEL PLUGIN STYLES -->
     <!-- BEGIN PAGE STYLES -->
-    <link href="<?= base_url()?>/assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url() ?>/assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
     <!-- END PAGE STYLES -->
     <!-- BEGIN THEME STYLES -->
     <!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
-    <link href="<?= base_url()?>/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/admin/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= base_url()?>/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css" id="style_color"/>
-    <link href="<?= base_url()?>/assets/admin/layout2/css/custom.css" rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/css/components.css" id="style_components" rel="stylesheet"
+          type="text/css"/>
+    <link href="<?= base_url() ?>/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url() ?>/assets/admin/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="<?= base_url() ?>/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css"
+          id="style_color"/>
+    <link href="<?= base_url() ?>/assets/admin/layout2/css/custom.css" rel="stylesheet" type="text/css"/>
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -57,7 +69,8 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="index.html">
-                <img src="<?php base_url()?>/assets/admin/layout2/img/logo-default.png" alt="logo" class="logo-default"/>
+                <img src="<?php base_url() ?>/assets/admin/layout2/img/logo-default.png" alt="logo"
+                     class="logo-default"/>
             </a>
             <div class="menu-toggler sidebar-toggler">
                 <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -65,7 +78,8 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- END LOGO -->
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+           data-target=".navbar-collapse">
         </a>
         <!-- END RESPONSIVE MENU TOGGLER -->
         <!-- BEGIN PAGE ACTIONS -->
@@ -73,7 +87,8 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="page-actions hide">
             <div class="btn-group">
                 <button type="button" class="btn btn-circle red-pink dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-bar-chart"></i>&nbsp;<span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
+                    <i class="icon-bar-chart"></i>&nbsp;<span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;<i
+                            class="fa fa-angle-down"></i>
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li>
@@ -105,7 +120,8 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
             <div class="btn-group">
                 <button type="button" class="btn btn-circle green-haze dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-bell"></i>&nbsp;<span class="hidden-sm hidden-xs">Post&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
+                    <i class="icon-bell"></i>&nbsp;<span class="hidden-sm hidden-xs">Post&nbsp;</span>&nbsp;<i
+                            class="fa fa-angle-down"></i>
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li>
@@ -252,9 +268,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN USER LOGIN DROPDOWN -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                     <li class="dropdown dropdown-user">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-close-others="true">
                             <span class="username username-hide-on-mobile">
-						<?=$this->session->userdata('name') ?> </span>
+						<?= $this->session->userdata('name') ?> </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
@@ -291,51 +308,52 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                 <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-                        <?php if($page == 'home'): ?>
-                        <li class="start active ">
+                <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false"
+                    data-auto-scroll="true" data-slide-speed="200">
+                    <?php if ($page == 'home'): ?>
+                    <li class="start active ">
                         <?php else: ?>
-                        <li class="start">
+                    <li class="start">
                         <?php endif; ?>
                         <a href="/admin/home">
                             <i class="icon-home"></i>
                             <span class="title">Главная</span>
                             <span class="selected"></span>
                         </a>
-                        <?php if($page == 'admins'): ?>
-                        <li class="active ">
+                        <?php if ($page == 'admins'): ?>
+                    <li class="active ">
                         <?php else: ?>
-                        <li class="">
+                    <li class="">
                         <?php endif; ?>
                         <a href="/admin/admins">
                             <i class="icon-user"></i>
                             <span class="title">Администрация</span>
                             <span class="selected"></span>
                         </a>
-                         <?php if($page == 'cars'): ?>
-                         <li class="active ">
-                         <?php else: ?>
-                         <li class="">
-                         <?php endif; ?>
-                         <a href="/admin/cars">
+                        <?php if ($page == 'cars'): ?>
+                    <li class="active ">
+                        <?php else: ?>
+                    <li class="">
+                        <?php endif; ?>
+                        <a href="/admin/cars">
                             <i class="icon-puzzle"></i>
                             <span class="title">Автомобили</span>
                             <span class="selected"></span>
                         </a>
-                        <?php if($page == 'services'): ?>
-                        <li class="active ">
-                            <?php else: ?>
-                        <li class="">
+                        <?php if ($page == 'services'): ?>
+                    <li class="active ">
+                        <?php else: ?>
+                    <li class="">
                         <?php endif; ?>
                         <a href="/admin/services">
                             <i class="icon-puzzle"></i>
                             <span class="title">Сервисы</span>
                             <span class="selected"></span>
                         </a>
-                        <?php if($page == 'orders'): ?>
-                        <li class="active ">
+                        <?php if ($page == 'orders'): ?>
+                    <li class="active ">
                         <?php else: ?>
-                        <li class="">
+                    <li class="">
                         <?php endif; ?>
                         <a href="/admin/orders">
                             <i class="icon-puzzle"></i>

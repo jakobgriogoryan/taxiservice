@@ -1,25 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admins extends CI_Controller{
+class Admins extends CI_Controller
+{
 
 
     public function __construct()
     {
         parent::__construct();
         $session = $this->session->all_userdata();
-        if(!isset($session['email'])){
-            redirect(base_url().'admin/auth');
+        if (!isset($session['email'])) {
+            redirect(base_url() . 'admin/auth');
         }
     }
-    public function index(){
+
+    public function index()
+    {
         $this->load->model('admins_model');
 
         $admins = $this->admins_model->selectAll();
-        $this->load->template('admin/admins/index',['admins' => $admins]);
+        $this->load->template('admin/admins/index', ['admins' => $admins]);
     }
 
-    public function create(){
+    public function create()
+    {
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules('name', 'Имя', 'required');
             $this->form_validation->set_rules('surname', 'Фамилия', 'required');
@@ -32,7 +36,7 @@ class Admins extends CI_Controller{
             $this->form_validation->set_message('login_exists', 'Такой логин уже существует');
 
 
-            if ($this->form_validation->run() !== FALSE){
+            if ($this->form_validation->run() !== FALSE) {
                 $data = array(
                     'role_id' => $this->input->post('role_id'),
                     'name' => $this->input->post('name'),
@@ -50,9 +54,10 @@ class Admins extends CI_Controller{
         $this->load->model('roles_model');
 
         $roles = $this->roles_model->selectAll();
-        $this->load->template('admin/admins/create',['roles' => $roles]);
+        $this->load->template('admin/admins/create', ['roles' => $roles]);
 
     }
+
     public function edit($id)
     {
         $this->load->model('admins_model');
@@ -88,10 +93,11 @@ class Admins extends CI_Controller{
 
     }
 
-    public function changePassword($id){
+    public function changePassword($id)
+    {
         $this->load->model('admins_model');
         if ($this->input->method() == 'post') {
-            $this->form_validation->set_rules('password','Password','required');
+            $this->form_validation->set_rules('password', 'Password', 'required');
             $this->form_validation->set_rules('rpassword', 'Re-type Password', 'required|matches[password]');
 
             if ($this->form_validation->run() !== FALSE) {
@@ -102,28 +108,33 @@ class Admins extends CI_Controller{
                 redirect('/admin/admins');
             }
         }
-        $this->load->template('admin/admins/change_password',[ 'id' => $id]);
+        $this->load->template('admin/admins/change_password', ['id' => $id]);
     }
-    public function delete($id){
+
+    public function delete($id)
+    {
         $this->load->model('admins_model');
 
         $this->admins_model->delete($id);
         echo json_encode(array('success' => true));
     }
 
-    public function email_exists($key) {
-        if(!$key){
+    public function email_exists($key)
+    {
+        if (!$key) {
             return true;
         }
         $this->load->model('admins_model');
-        return $this->admins_model->key_exists('email',$key);
+        return $this->admins_model->key_exists('email', $key);
     }
-    public function login_exists($key){
-        if(!$key){
+
+    public function login_exists($key)
+    {
+        if (!$key) {
             return true;
         }
         $this->load->model('admins_model');
-        return $this->admins_model->key_exists('login',$key);
+        return $this->admins_model->key_exists('login', $key);
     }
 
 }
