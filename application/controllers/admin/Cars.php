@@ -45,9 +45,9 @@ class Cars extends CI_Controller
             $this->form_validation->set_rules('further', 'Заполните Далее', 'required|integer');
             $this->form_validation->set_rules('for_mkad', 'Заполните За МКАД', 'required|integer');
             $this->form_validation->set_rules('over_200km', 'Заполните Свыше 200км от МКАД', 'required|integer');
-            if (empty($_FILES['image_1'])) {
-                $this->form_validation->set_rules('image_1', 'Вы должны загрузить хотя бы одну картинку', 'required');
-            }
+//            if (empty($_FILES['image_1'])) {
+//                $this->form_validation->set_rules('image_1', 'Вы должны загрузить хотя бы одну картинку', 'required');
+//            }
             $this->form_validation->set_message('required', '%s');
             $this->form_validation->set_message('integer', '%s (Число)');
 
@@ -80,9 +80,14 @@ class Cars extends CI_Controller
                     if (!$image = $this->upload->do_upload('image_' . $i)) {
                         continue;
                     } else {
+                        $main = 0;
+                        if($this->input->post('main_image_'.$i) == 'on'){
+                            $main = 1;
+                        }
                         $insert_data = array(
                             'name' => $this->upload->data('file_name'),
-                            'car_id' => $car_id
+                            'car_id' => $car_id,
+                            'main' => $main
                         );
                         $this->images_model->add($insert_data);
                     }
@@ -112,18 +117,18 @@ class Cars extends CI_Controller
             $this->form_validation->set_rules('further', 'Заполните Далее', 'required|integer');
             $this->form_validation->set_rules('for_mkad', 'Заполните За МКАД', 'required|integer');
             $this->form_validation->set_rules('over_200km', 'Заполните Свыше 200км от МКАД', 'required|integer');
-            $uploaded_image = false;
-            for ($i = 1; $i <= 10; $i++) {
-                $image = $this->input->post('exist_image_' . $i);
-                if (isset($image)) {
-                    $uploaded_image = true;
-                }
-            }
-            if (!$uploaded_image) {
-                if (empty($_FILES['image_1'])) {
-                    $this->form_validation->set_rules('image_1', 'Вы должны загрузить хотя бы одну картинку', 'required');
-                }
-            }
+//            $uploaded_image = false;
+//            for ($i = 1; $i <= 10; $i++) {
+//                $image = $this->input->post('exist_image_' . $i);
+//                if (isset($image)) {
+//                    $uploaded_image = true;
+//                }
+//            }
+//            if (!$uploaded_image) {
+//                if (empty($_FILES['image_1'])) {
+//                    $this->form_validation->set_rules('image_1', 'Вы должны загрузить хотя бы одну картинку', 'required');
+//                }
+//            }
             if ($this->form_validation->run() !== FALSE) {
                 $data = array(
                     'name' => $this->input->post('name'),
@@ -150,9 +155,15 @@ class Cars extends CI_Controller
                     if (!$image = $this->upload->do_upload('image_' . $i)) {
                         continue;
                     } else {
+                        $main = 0;
+                        if($this->input->post('main_image_'.$i) == 'on'){
+                            $main = 1;
+                            $this->images_model->edit(array('main' => 0),$id);
+                        }
                         $insert_data = array(
                             'name' => $this->upload->data('file_name'),
-                            'car_id' => $id
+                            'car_id' => $id,
+                            'main' => $main
                         );
                         $this->images_model->add($insert_data);
                     }

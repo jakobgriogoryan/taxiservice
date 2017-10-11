@@ -3,7 +3,10 @@
         <!-- BEGIN PAGE HEADER-->
         <h3 class="page-title">
             Дабавить автомобиль
+
+
         </h3>
+
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN PORTLET-->
@@ -20,7 +23,7 @@
                     <div class="portlet-body form">
                         <div class="form-body">
                             <!-- BEGIN FORM-->
-                            <form class="register-form" action="<?= base_url() ?>admin/cars/create" method="post"
+                            <form class="cars-form" action="<?= base_url() ?>admin/cars/create" method="post"
                                   enctype="multipart/form-data">
                                 <?php echo validation_errors(); ?>
                                 <div class="form-group">
@@ -145,14 +148,24 @@
                                 </div>
 
                                 <h3>Выберите картинку:</h3>
-                                <?php for ($i = 1; $i <= 10; $i++): ?>
-                                    <div class="checkbox-list">
-                                        <label> Сделать главным
-                                            <input type="checkbox" class="checker" name="main_image_<?= $i ?>">
-                                        </label>
-                                    </div>
-                                    <input type="file" name="image_<?= $i ?>">
-                                <?php endfor; ?>
+                                    <table class="car-file-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Выбрать файл</th>
+                                                <th>Сделать главным</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php for ($i = 1; $i <= 10; $i++): ?>
+                                            <tr>
+                                                <td class="block-file"><input type="file" id="image_<?= $i ?>" name="image_<?= $i ?>"></td>
+                                                <td class="block-main-checkbox">
+                                                    <input type="checkbox" class="checker file-checkbox" name="main_image_<?= $i ?>">
+                                                </td>
+                                            </tr>
+                                        <?php endfor; ?>
+                                        </tbody>
+                                    </table>
 
                                 <div class="form-actions">
                                     <button type="submit" id="register-submit-btn"

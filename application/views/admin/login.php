@@ -10,7 +10,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8"/>
-    <title>Metronic | Login Options - Login Form 1</title>
+    <title>Taxi Minivan | Admin Panel</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -59,9 +59,9 @@
 
 <!-- BEGIN LOGIN -->
 <div class="content">
+    <h3></h3>
     <!-- BEGIN LOGIN FORM -->
     <form class="login-form" action=" <?= base_url() ?>admin/auth/login" method="post">
-        <h3 class="form-title">Регистрация</h3>
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
             <span>
@@ -80,118 +80,11 @@
         </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-success uppercase">Войти</button>
-            <label class="rememberme check">
-                <input type="checkbox" name="remember" value="1"/>Запомнить </label>
-            <a href="javascript:;" id="forget-password" class="forget-password">Забыли пароль?</a>
-        </div>
-        <!--        <div class="login-options">-->
-        <!--            <h4>Or login with</h4>-->
-        <!--            <ul class="social-icons">-->
-        <!--                <li>-->
-        <!--                    <a class="social-icon-color facebook" data-original-title="facebook" href="#"></a>-->
-        <!--                </li>-->
-        <!--                <li>-->
-        <!--                    <a class="social-icon-color twitter" data-original-title="Twitter" href="#"></a>-->
-        <!--                </li>-->
-        <!--                <li>-->
-        <!--                    <a class="social-icon-color googleplus" data-original-title="Goole Plus" href="#"></a>-->
-        <!--                </li>-->
-        <!--                <li>-->
-        <!--                    <a class="social-icon-color linkedin" data-original-title="Linkedin" href="#"></a>-->
-        <!--                </li>-->
-        <!--            </ul>-->
-        <!--        </div>-->
-        <div class="create-account">
-            <p>
-                <a href="javascript:;" id="register-btn" class="uppercase">Зарегистрироваться</a>
-            </p>
         </div>
     </form>
-    <!-- END LOGIN FORM -->
-    <!-- BEGIN FORGOT PASSWORD FORM -->
-    <form class="forget-form" action="<?= base_url() . '/login' ?>" method="post">
-        <h3>Забыли пароль ?</h3>
-        <p>
-            Введите ваш электронная почта для изменения паролья.
-        </p>
-        <div class="form-group">
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off"
-                   placeholder="Электронная почта" name="email"/>
-        </div>
-        <div class="form-actions">
-            <button type="button" id="back-btn" class="btn btn-default">Назад</button>
-            <button type="submit" class="btn btn-success uppercase pull-right">Далее</button>
-        </div>
-    </form>
-    <!-- END FORGOT PASSWORD FORM -->
-    <!-- BEGIN REGISTRATION FORM -->
-    <form class="register-form" action="<?= base_url() ?>/login" method="post">
-        <h3>Регистрация</h3>
-        <p class="hint">
-            Введите ваши персональные данные:
-        </p>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Имя</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Имя" name="name"/>
-        </div>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Фамилия</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Фамилия" name="surname"/>
-        </div>
-        <div class="form-group">
-            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            <label class="control-label visible-ie8 visible-ie9">Электронная почта</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Электронная почта" name="email"/>
-        </div>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Номер мовильного телефона</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="Номер мовильного телефона"
-                   name="phone_number"/>
-        </div>
-        <!--        <div class="form-group">-->
-        <!--            <label class="control-label visible-ie8 visible-ie9">City/Town</label>-->
-        <!--            <input class="form-control placeholder-no-fix" type="text" placeholder="City/Town" name="city"/>-->
-        <!--        </div>-->
-
-        <p class="hint">
-            Введите данные вашего аккаунта:
-        </p>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Логин</label>
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Логин"
-                   name="login"/>
-        </div>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Пароль</label>
-            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password"
-                   placeholder="Пароль" name="password"/>
-        </div>
-        <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Павторите пароль</label>
-            <input class="form-control placeholder-no-fix" type="password" autocomplete="off"
-                   placeholder="Павторите пароль" name="rpassword"/>
-        </div>
-        <!--        <div class="form-group margin-top-20 margin-bottom-20">-->
-        <!--            <label class="check">-->
-        <!--                <input type="checkbox" name="tnc"/> I agree to the <a href="#">-->
-        <!--                    Terms of Service </a>-->
-        <!--                & <a href="#">-->
-        <!--                    Privacy Policy </a>-->
-        <!--            </label>-->
-        <!--            <div id="register_tnc_error">-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <div class="form-actions">
-            <button type="button" id="register-back-btn" class="btn btn-default">Назад</button>
-            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Создать
-                аккаунт
-            </button>
-        </div>
-    </form>
-    <!-- END REGISTRATION FORM -->
 </div>
 <div class="copyright">
-    2014 © Metronic. Admin Dashboard Template.
+    2017 © Metronic. Dream Worker company. All rights reserved.
 </div>
 <!-- END LOGIN -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->

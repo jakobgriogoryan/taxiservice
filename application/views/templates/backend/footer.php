@@ -3,7 +3,7 @@
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
     <div class="page-footer-inner">
-        2014 &copy; Metronic by keenthemes.
+        2017 © Metronic. Dream Worker company. All rights reserved.
     </div>
     <div class="scroll-to-top">
         <i class="icon-arrow-up"></i>
@@ -33,20 +33,14 @@
         type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="<?= base_url() ?>/assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
-<script src="<?= base_url() ?>/assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-<script src="<?= base_url() ?>/assets/global/plugins/flot/jquery.flot.categories.min.js"
-        type="text/javascript"></script>
+
 <script src="<?= base_url() ?>/assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
 <script src="<?= base_url() ?>/assets/global/plugins/bootstrap-daterangepicker/moment.min.js"
         type="text/javascript"></script>
 <script src="<?= base_url() ?>/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"
         type="text/javascript"></script>
-<!-- IMPORTANT! fullcalendar depends on jquery-ui.min.js for drag & drop support -->
-<script src="<?= base_url() ?>/assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-<script src="<?= base_url() ?>/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js"
-        type="text/javascript"></script>
-<script src="<?= base_url() ?>/assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+
+<script src="<?= base_url() ?>/assets/admin/pages/scripts/components-form-tools.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?= base_url() ?>/assets/global/scripts/metronic.js" type="text/javascript"></script>

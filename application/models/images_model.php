@@ -12,11 +12,17 @@ class images_model extends CI_Model
 
     public function getById($id)
     {
-        $this->db->select('cars.*,' . $this->table . '.name, ' . $this->table . '.id as image_id');
+        $this->db->select('cars.*,' . $this->table . '.name, ' . $this->table . '.id as image_id, ' . $this->table . '.main');
         $this->db->from($this->table)->join('cars', 'cars.id = ' . $this->table . '.car_id');
         $this->db->where(['cars.id' => $id]);
         $query = $this->db->get();
         return $query->result();
+    }
+
+    public function edit($data, $id)
+    {
+        $this->db->where('car_id', $id);
+        return $this->db->update($this->table, $data);
     }
 
     public function delete($id)

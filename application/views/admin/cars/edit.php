@@ -20,7 +20,7 @@
                     <div class="portlet-body form">
                         <div class="form-body">
                             <!-- BEGIN FORM-->
-                            <form class="register-form" action="<?= base_url() ?>admin/cars/edit/<?= $id ?>"
+                            <form class="cars-form" action="<?= base_url() ?>admin/cars/edit/<?= $id ?>"
                                   method="post" enctype="multipart/form-data">
                                 <?php echo validation_errors(); ?>
                                 <div class="form-group">
@@ -157,13 +157,16 @@
                                 </div>
 
                                 <h3>Текущие картинки:</h3>
-                                <div class="row">
+                                <div class="row exist-images">
                                     <?php $i = 0;
                                     foreach ($images as $image): ?>
                                         <div class="col-md-4">
                                             <a href="javascript:;" data-id="<?= $image->image_id ?>"
                                                data-image="<?= $image->name ?>" class="remove-image"
                                                style="color:red"><i class="fa fa-remove"></i></a>
+                                            <?php if(!$image->main): ?>
+                                            <button>Сделать главным</button>
+                                            <?php endif; ?>
                                             <input type="hidden" name="exist_image_<?= $i ?>"
                                                    value="<?= $image->image_id ?>">
                                             <img class="img-responsive" src="/assets/images/cars/<?= $image->name ?>">
@@ -171,9 +174,24 @@
                                         <?php $i++; endforeach; ?>
                                 </div>
                                 <h3>Выберите картинку:</h3>
-                                <?php for ($i = 1; $i <= 10; $i++): ?>
-                                    <input type="file" name="image_<?= $i ?>">
-                                <?php endfor; ?>
+                                <table class="car-file-table edit">
+                                    <thead>
+                                    <tr>
+                                        <th>Выбрать файл</th>
+                                        <th>Сделать главным</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php for ($i = 1; $i <= 10; $i++): ?>
+                                        <tr>
+                                            <td class="block-file"><input type="file" id="image_<?= $i ?>" name="image_<?= $i ?>"></td>
+                                            <td class="block-main-checkbox">
+                                                <input type="checkbox" class="checker file-checkbox" name="main_image_<?= $i ?>">
+                                            </td>
+                                        </tr>
+                                    <?php endfor; ?>
+                                    </tbody>
+                                </table>
 
                                 <div class="form-actions">
                                     <button type="submit" id="register-submit-btn"
