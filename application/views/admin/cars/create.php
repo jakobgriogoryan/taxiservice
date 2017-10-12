@@ -146,7 +146,19 @@
                                                placeholder="Свыше 200км от МКАД" name="over_200km" id="Over_200km"/>
                                     <?php endif; ?>
                                 </div>
+                                <div class="form-group">
+                                    <label>Выбрать тип машины</label>
+                                    <div class="row">
+                                        <?php foreach($car_types as $car_type): ?>
+                                        <div class="col-md-3 car_type_block">
 
+                                            <input type="checkbox" class="checker" name="car_type[]" value="<?=$car_type->id ?>">
+                                            <?=$car_type->name ?>
+                                        </div>
+                                        <?php endforeach; ?>
+                                    </div>
+
+                                </div>
                                 <h3>Выберите картинку:</h3>
                                     <table class="car-file-table">
                                         <thead>

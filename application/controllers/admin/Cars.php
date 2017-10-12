@@ -66,8 +66,14 @@ class Cars extends CI_Controller
                     'for_mkad' => $this->input->post('for_mkad'),
                     'over_200km' => $this->input->post('over_200km')
                 );
+                $car_types = $this->input->post('car_type');
                 $this->load->model('cars_model');
+                $this->load->model('car_type_model');
+
                 $car_id = $this->cars_model->add($data);
+                foreach($car_types as $car_type){
+                    $this->car_type_model->add(array('car_id' => $car_id,'order_type_id' => $car_type));
+                }
                 $this->load->model('images_model');
                 $config['upload_path'] = 'assets/images/cars/';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -96,7 +102,9 @@ class Cars extends CI_Controller
             }
 
         }
-        $this->load->template('admin/cars/create', ['passengers_count' => $this->passengers_count]);
+        $this->load->model('order_type_model');
+        $car_types = $this->order_type_model->selectAll();
+        $this->load->template('admin/cars/create', ['passengers_count' => $this->passengers_count,'car_types' => $car_types]);
 
     }
 
@@ -104,7 +112,8 @@ class Cars extends CI_Controller
     {
         $this->load->model('cars_model');
         $this->load->model('images_model');
-
+        $this->load->model('order_type_model');
+        $this->load->model('car_type_model');
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules('name', 'Заполните Имя', 'required');
             $this->form_validation->set_rules('name_en', 'Заполните Имя (English)', 'required');
@@ -143,7 +152,12 @@ class Cars extends CI_Controller
                     'for_mkad' => $this->input->post('for_mkad'),
                     'over_200km' => $this->input->post('over_200km')
                 );
+                $car_types = $this->input->post('car_type');
                 $this->cars_model->edit($data, $id);
+                $this->car_type_model->delete($id);
+                foreach($car_types as $car_type){
+                    $this->car_type_model->add(array('car_id' => $id,'order_type_id' => $car_type));
+                }
                 $config['upload_path'] = 'assets/images/cars/';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
                 $config['encrypt_name'] = TRUE;
@@ -175,7 +189,14 @@ class Cars extends CI_Controller
         }
         $car = $this->cars_model->getById($id);
         $images = $this->images_model->getById($id);
-        $this->load->template('admin/cars/edit', ['id' => $id, 'car' => $car, 'passengers_count' => $this->passengers_count, 'images' => $images]);
+        $all_car_types = $this->order_type_model->selectAll();
+        $car_types_data = $this->car_type_model->getById($id);
+        $car_types = array();
+        foreach($car_types_data as $car_type){
+            $car_types[] = $car_type->order_type_id;
+        }
+
+        $this->load->template('admin/cars/edit', ['id' => $id, 'car' => $car, 'passengers_count' => $this->passengers_count, 'images' => $images, 'all_car_types' => $all_car_types,'car_types' => $car_types]);
 
     }
 
@@ -201,6 +222,15 @@ class Cars extends CI_Controller
     {
         $this->load->model('cars_model');
         $this->cars_model->delete($id);
+        echo json_encode(array('success' => true));
+    }
+
+    public function changeMainPicture(){
+        $id = $this->input->post('id');
+        $car_id = $this->input->post('car_id');
+        $this->load->model('images_model');
+        $this->images_model->edit(array('main' => 0),$car_id);
+        $this->images_model->edit(array('main' => 1),$id,'id');
         echo json_encode(array('success' => true));
     }
 }

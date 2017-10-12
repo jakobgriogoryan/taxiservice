@@ -83,11 +83,21 @@ $(document).ready(function(){
     $('.cars-form').on("submit",function(){
         var file_checked = false;
         var file_main_checked = false;
-        var success = false;
+        var success = true;
+        var car_type_checked = false;
         if($('.car-file-table').hasClass('edit')){
             if($(".exist-images").children().length > 0){
-                success = true;
+                success = false;
             }
+        }
+        $('.car_type_block input').each(function(){
+            if($(this).is(':checked')){
+                car_type_checked = true;
+            }
+        })
+        if(!car_type_checked){
+            alert('Выберите тип машины');
+            return false;
         }
         if(success){
             $(".car-file-table tbody tr").each(function(){
@@ -111,3 +121,25 @@ $(document).ready(function(){
         }
     })
 })
+function change_main_picture(self){
+    var id = $(self).attr('data-id');
+    var car_id = $(self).attr('data-car-id');
+    $.ajax({
+        url: '/admin/cars/changeMainPicture',
+        type: 'POST',
+        data: {id:id,car_id:car_id},
+        dataType: 'json',
+        success: function(data){
+            if(data.success){
+                $(self).remove();
+                $('.exist-images div').each(function(){
+                    if(id != $(this).attr('data-id')){
+                        $(this).find('span.image-button-block').html(
+                            '<button type="button" class="" data-id="'+$(this).attr('data-id')+'" data-car-id="'+car_id+'" onclick="change_main_picture(this)">Сделать главным</button>'
+                        )
+                    }
+                })
+            }
+        }
+    })
+}
