@@ -71,8 +71,8 @@ class Cars extends CI_Controller
                 $this->load->model('car_type_model');
 
                 $car_id = $this->cars_model->add($data);
-                foreach($car_types as $car_type){
-                    $this->car_type_model->add(array('car_id' => $car_id,'order_type_id' => $car_type));
+                foreach ($car_types as $car_type) {
+                    $this->car_type_model->add(array('car_id' => $car_id, 'order_type_id' => $car_type));
                 }
                 $this->load->model('images_model');
                 $config['upload_path'] = 'assets/images/cars/';
@@ -87,7 +87,7 @@ class Cars extends CI_Controller
                         continue;
                     } else {
                         $main = 0;
-                        if($this->input->post('main_image_'.$i) == 'on'){
+                        if ($this->input->post('main_image_' . $i) == 'on') {
                             $main = 1;
                         }
                         $insert_data = array(
@@ -104,7 +104,7 @@ class Cars extends CI_Controller
         }
         $this->load->model('order_type_model');
         $car_types = $this->order_type_model->selectAll();
-        $this->load->template('admin/cars/create', ['passengers_count' => $this->passengers_count,'car_types' => $car_types]);
+        $this->load->template('admin/cars/create', ['passengers_count' => $this->passengers_count, 'car_types' => $car_types]);
 
     }
 
@@ -155,8 +155,8 @@ class Cars extends CI_Controller
                 $car_types = $this->input->post('car_type');
                 $this->cars_model->edit($data, $id);
                 $this->car_type_model->delete($id);
-                foreach($car_types as $car_type){
-                    $this->car_type_model->add(array('car_id' => $id,'order_type_id' => $car_type));
+                foreach ($car_types as $car_type) {
+                    $this->car_type_model->add(array('car_id' => $id, 'order_type_id' => $car_type));
                 }
                 $config['upload_path'] = 'assets/images/cars/';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -170,9 +170,9 @@ class Cars extends CI_Controller
                         continue;
                     } else {
                         $main = 0;
-                        if($this->input->post('main_image_'.$i) == 'on'){
+                        if ($this->input->post('main_image_' . $i) == 'on') {
                             $main = 1;
-                            $this->images_model->edit(array('main' => 0),$id);
+                            $this->images_model->edit(array('main' => 0), $id);
                         }
                         $insert_data = array(
                             'name' => $this->upload->data('file_name'),
@@ -192,11 +192,11 @@ class Cars extends CI_Controller
         $all_car_types = $this->order_type_model->selectAll();
         $car_types_data = $this->car_type_model->getById($id);
         $car_types = array();
-        foreach($car_types_data as $car_type){
+        foreach ($car_types_data as $car_type) {
             $car_types[] = $car_type->order_type_id;
         }
 
-        $this->load->template('admin/cars/edit', ['id' => $id, 'car' => $car, 'passengers_count' => $this->passengers_count, 'images' => $images, 'all_car_types' => $all_car_types,'car_types' => $car_types]);
+        $this->load->template('admin/cars/edit', ['id' => $id, 'car' => $car, 'passengers_count' => $this->passengers_count, 'images' => $images, 'all_car_types' => $all_car_types, 'car_types' => $car_types]);
 
     }
 
@@ -225,12 +225,13 @@ class Cars extends CI_Controller
         echo json_encode(array('success' => true));
     }
 
-    public function changeMainPicture(){
+    public function changeMainPicture()
+    {
         $id = $this->input->post('id');
         $car_id = $this->input->post('car_id');
         $this->load->model('images_model');
-        $this->images_model->edit(array('main' => 0),$car_id);
-        $this->images_model->edit(array('main' => 1),$id,'id');
+        $this->images_model->edit(array('main' => 0), $car_id);
+        $this->images_model->edit(array('main' => 1), $id, 'id');
         echo json_encode(array('success' => true));
     }
 }

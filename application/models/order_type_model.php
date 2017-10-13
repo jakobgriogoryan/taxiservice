@@ -44,4 +44,12 @@ class Order_type_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getByCarId($id){
+        $this->db->select('cars.id,cars.name,cars.name_en');
+        $this->db->from($this->table)->join( 'cars','cars.id = order_type.car_id');
+        $this->db->where(['order_type.id' => $id]);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

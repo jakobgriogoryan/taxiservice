@@ -12,7 +12,17 @@ class Contacts extends CI_Controller
         }
     }
 
-    public function contacts(){
+    public function index(){
 
+        $this->load->model('message_model');
+        $contacts= $this->message_model->index();
+        $this->load->template('admin/user_message/index',['contacts' => $contacts]);
+    }
+
+    public function delete($id)
+    {
+        $this->load->model('message_model');
+        $this->message_model->delete($id);
+        echo json_encode(array('success' => true));
     }
 }

@@ -156,32 +156,37 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Выбрать тип машины</label>
+                                    <label><h3>Выберите тип маршрута для подходящих автомобилей</h3></label>
                                     <div class="row">
-                                        <?php foreach($all_car_types as $all_car_type): ?>
+                                        <?php foreach ($all_car_types as $all_car_type): ?>
                                             <div class="col-md-3 car_type_block">
-                                                <?php if(in_array($all_car_type->id,$car_types)): ?>
-                                                <input checked type="checkbox" class="checker" name="car_type[]" value="<?=$all_car_type->id ?>">
+                                                <?php if (in_array($all_car_type->id, $car_types)): ?>
+                                                    <input checked type="checkbox" class="checker" name="car_type[]"
+                                                           value="<?= $all_car_type->id ?>">
                                                 <?php else: ?>
-                                                <input type="checkbox" class="checker" name="car_type[]" value="<?=$all_car_type->id ?>">
+                                                    <input type="checkbox" class="checker" name="car_type[]"
+                                                           value="<?= $all_car_type->id ?>">
                                                 <?php endif; ?>
-                                                <?=$all_car_type->name ?>
+                                                <?= $all_car_type->name ?>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
+                                    <hr>
 
                                 </div>
                                 <h3>Текущие картинки:</h3>
                                 <div class="row exist-images">
                                     <?php $i = 0;
                                     foreach ($images as $image): ?>
-                                        <div class="col-md-4" data-id="<?=$image->image_id ?>">
+                                        <div class="col-md-4" data-id="<?= $image->image_id ?>">
                                             <a href="javascript:;" data-id="<?= $image->image_id ?>"
                                                data-image="<?= $image->name ?>" class="remove-image"
                                                style="color:red"><i class="fa fa-remove"></i></a>
                                             <span class="image-button-block">
-                                                <?php if(!$image->main): ?>
-                                                    <button type="button" class="" data-id="<?=$image->image_id ?>" data-car-id="<?=$image->car_id ?>" onclick="change_main_picture(this)">Сделать главным</button>
+                                                <?php if (!$image->main): ?>
+                                                    <button type="button" class="" data-id="<?= $image->image_id ?>"
+                                                            data-car-id="<?= $image->car_id ?>"
+                                                            onclick="change_main_picture(this)">Сделать главным</button>
                                                 <?php endif; ?>
                                             </span>
                                             <input type="hidden" name="exist_image_<?= $i ?>"
@@ -201,9 +206,11 @@
                                     <tbody>
                                     <?php for ($i = 1; $i <= 10; $i++): ?>
                                         <tr>
-                                            <td class="block-file"><input type="file" id="image_<?= $i ?>" name="image_<?= $i ?>"></td>
+                                            <td class="block-file"><input type="file" id="image_<?= $i ?>"
+                                                                          name="image_<?= $i ?>"></td>
                                             <td class="block-main-checkbox">
-                                                <input type="checkbox" class="checker file-checkbox" name="main_image_<?= $i ?>">
+                                                <input type="checkbox" class="checker file-checkbox"
+                                                       name="main_image_<?= $i ?>">
                                             </td>
                                         </tr>
                                     <?php endfor; ?>

@@ -361,6 +361,18 @@ License: You must have a valid license purchased only from themeforest(the above
                             <span class="selected"></span>
                         </a>
                     </li>
+                    <?php if ($page == 'user_messages'): ?>
+                    <li class="active ">
+                        <?php else: ?>
+                    <li class="">
+                        <?php endif; ?>
+                        <a href="/admin/contacts/">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">Сообщение пользователя</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
                 </ul>
                 <!-- END SIDEBAR MENU -->
             </div>

@@ -20,9 +20,14 @@ class Home extends CI_Controller
 
     public function cars()
     {
+        $this->load->model('cars_model');
+        $cars = $this->cars_model->selectAll();
+        $this->load->model('images_model');
+        $this->load->model('car_type_model');
 
-        $this->load->template('cars');
+        $this->load->template('cars', ['cars' => $cars]);
     }
+
 
     public function booking()
     {
@@ -65,12 +70,21 @@ class Home extends CI_Controller
     {
         $service = $this->order_type_model->getByUrl($page);
 
-        $this->load->template('services', ['service' => $service]);
+        $this->load->model('cars_model');
+        $cars = $this->cars_model->selectAll();
+//        echo '<pre>';
+//            print_r($service);die;
+
+//        $this->order_type_model->getByCarId();
+        $this->load->model('images_model');
+        $this->load->model('car_type_model');
+
+        $this->load->template('services', [ 'service'=> $service, 'cars' => $cars ]);
     }
 
 
-
-        public function contacts(){
+    public function contacts()
+    {
 
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules('name', 'Name', 'required');

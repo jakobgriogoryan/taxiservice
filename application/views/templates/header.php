@@ -32,8 +32,7 @@
 
     <script type="text/javascript" src="/assets/frontend/js/touchTouch.jquery.js"></script>
     <script type="text/javascript" src="/assets/frontend/js/jquery.isotope.min.js"></script>
-    <script type="text/javascript"
-            src="/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script>
         $(document).ready(function () {
             $(".date-picker").datetimepicker();
@@ -60,6 +59,36 @@
         }); //
         $(window).load(function () {
             //
+            // isotop
+            var $container = $('#isotope-items'),
+                $optionSet = $('#isotope-options'),
+                $optionSets = $('#isotope-filters'),
+                $optionLinks = $optionSets.find('a');
+            $container.isotope({
+                filter: '*',
+                layoutMode: 'fitRows'
+            });
+            $optionLinks.click(function(){
+                var $this = $(this);
+                // don't proceed if already selected
+                if ( $this.hasClass('selected') ) {
+                    return false;
+                }
+                $optionSet.find('.selected').removeClass('selected');
+                $this.addClass('selected');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector
+                });
+                return false;
+            });
+            $(window).on("resize", function( event ) {
+                $container.isotope('reLayout');
+            });
+
+            // touchTouch
+            $('.thumb-isotope .thumbnail a').touchTouch();
 
         }); //
     </script>

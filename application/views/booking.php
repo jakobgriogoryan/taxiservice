@@ -83,12 +83,12 @@
 
                             <div class="span4">
                                 <div class="form-group">
-                                    <label class="control-label "><?= $this->lang->line('order_user_address') ?>
+                                    <label class="control-label "><?= $this->lang->line('order_user_datetime') ?>
                                         :</label>
                                     <div class="col-md-3">
                                         <input class="form-control form-control-inline input-medium date-picker"
                                                size="16" type="text" name="datetime"
-                                               PLACEHOLDER="<?= $this->lang->line('order_user_address') ?>"/>
+                                               PLACEHOLDER="<?= $this->lang->line('order_user_datetime') ?>"/>
                                     </div>
                                 </div>
                             </div>
