@@ -57,6 +57,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="<?= base_url() ?>/assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css"
           id="style_color"/>
     <link href="<?= base_url() ?>/assets/admin/layout2/css/custom.css" rel="stylesheet" type="text/css"/>
+
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -68,7 +69,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="page-header-inner container">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="index.html">
+            <a href="/">
                 <img src="<?php base_url() ?>/assets/admin/layout2/img/logo-default.png" alt="logo"
                      class="logo-default"/>
             </a>
@@ -310,6 +311,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false"
                     data-auto-scroll="true" data-slide-speed="200">
+                    <?php if($this->session->userdata('role_id') == $ADMIN || $this->session->userdata('role_id') == $SUPERADMIN): ?>
                     <?php if ($page == 'home'): ?>
                     <li class="start active ">
                         <?php else: ?>
@@ -350,24 +352,25 @@ License: You must have a valid license purchased only from themeforest(the above
                             <span class="title">Сервисы</span>
                             <span class="selected"></span>
                         </a>
+                    <?php endif; ?>
                         <?php if ($page == 'orders'): ?>
                     <li class="active ">
                         <?php else: ?>
                     <li class="">
                         <?php endif; ?>
-                        <a href="/admin/orders">
-                            <i class="icon-puzzle"></i>
+                        <a href="/admin/orders" style="<?=count($unwatched_orders) ? 'color:red' : '' ?>">
+                            <i class="icon-puzzle" style="<?=count($unwatched_orders) ? 'color:red' : '' ?>"></i>
                             <span class="title">Заказы</span>
                             <span class="selected"></span>
                         </a>
                     </li>
-                    <?php if ($page == 'user_messages'): ?>
+                    <?php if ($page == 'contacts'): ?>
                     <li class="active ">
                         <?php else: ?>
                     <li class="">
                         <?php endif; ?>
-                        <a href="/admin/contacts/">
-                            <i class="icon-puzzle"></i>
+                        <a href="/admin/contacts/" style="<?=count($unwatched_contacts) ? 'color:red' : '' ?>">
+                            <i class="icon-puzzle" style="<?=count($unwatched_contacts) ? 'color:red' : '' ?>"></i>
                             <span class="title">Сообщение пользователя</span>
                             <span class="selected"></span>
                         </a>

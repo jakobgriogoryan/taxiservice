@@ -17,6 +17,13 @@ class Orders extends CI_Controller
 
         $orders = $this->orders_model->selectAll();
         $status = $this->orders_model->status;
+
         $this->load->template('admin/orders/index', ['orders' => $orders, 'status' => $status]);
+    }
+
+    public function order($id,$status){
+        $this->load->model('orders_model');
+        $this->orders_model->updateStatus($id,$status);
+        redirect(base_url() . 'admin/orders');
     }
 }

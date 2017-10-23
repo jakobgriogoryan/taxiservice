@@ -23,7 +23,8 @@
 
                 <div id="note"></div>
                 <div id="fields">
-                    <form id="ajax-contact-form" class="form-horizontal" action="contacts" method="post">
+                    <form id="ajax-contact-form" class="form-horizontal contact-form" action="contacts" method="post">
+                        <input type="hidden" name="lang" value="<?=$lang ?>">
                         <?php  echo validation_errors(); ?>
                         <div class="row">
                             <div class="span4">
@@ -64,9 +65,7 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputMessage"><?=$this->lang->line('contacts_message')?>:</label>
                                     <div class="controls">
-				      <textarea class="span12" id="inputMessage" name="message"
-                                onBlur="if(this.value=='') this.value='Message:'"
-                                onFocus="if(this.value =='Message:' ) this.value=''"><?=$this->lang->line('contacts_message')?>:</textarea>
+				                        <textarea class="span12" id="inputMessage" name="message"></textarea>
                                     </div>
                                 </div>
                             </div>

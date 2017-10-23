@@ -12,6 +12,11 @@ class Admins extends CI_Controller
         if (!isset($session['email'])) {
             redirect(base_url() . 'admin/auth');
         }
+        $this->load->model('roles_model');
+
+        if($session['role_id'] != $this->roles_model->ADMIN && $session['role_id'] != $this->roles_model->SUPERADMIN){
+            redirect(base_url() . 'admin');
+        }
     }
 
     public function index()

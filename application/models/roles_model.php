@@ -3,7 +3,9 @@
 class Roles_model extends CI_Model
 {
     protected $table = 'role';
-
+    public $SUPERADMIN = 1;
+    public $ADMIN = 2;
+    public $MANAGER = 3;
 
     public function selectAll()
     {

@@ -6,7 +6,8 @@
     <title><?= $title ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="gridgum.com">
+    <meta name="author" content="dreamworker.co">
+    <meta name="description" content="<?=$meta_description ?>">
     <link rel="icon" href="/assets/frontend/images/favicon.html" type="image/x-icon">
     <link rel="shortcut icon" href="images/favicon.html" type="image/x-icon"/>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -33,6 +34,8 @@
     <script type="text/javascript" src="/assets/frontend/js/touchTouch.jquery.js"></script>
     <script type="text/javascript" src="/assets/frontend/js/jquery.isotope.min.js"></script>
     <script type="text/javascript" src="/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/frontend/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="/assets/frontend/slick/slick-theme.css">
     <script>
         $(document).ready(function () {
             $(".date-picker").datetimepicker();
@@ -115,7 +118,7 @@
                         <div class="top1_inner">
                             <div class="top1_inner2">
                                 <header>
-                                    <div class="logo_wrapper"><a href="index-2.html" class="logo"><img
+                                    <div class="logo_wrapper"><a href="/" class="logo"><img
                                                     src="/assets/frontend/images/logo.png" alt=""></a></div>
                                 </header>
                                 <div class="menu_wrapper">
@@ -129,6 +132,20 @@
                                             </a>
                                             <div class="nav-collapse nav-collapse_ collapse">
                                                 <ul class="nav sf-menu clearfix">
+                                                    <li class="sub-menu sub-menu-1">
+                                                        <a href="javascript:;"><?= $this->lang->line('header_language_'.$lang) ?>
+                                                            <em></em>
+                                                        </a>
+                                                        <ul>
+                                                            <?php foreach ($languages as $key => $language): ?>
+                                                                <?php if ($key != $lang): ?>
+                                                                    <li>
+                                                                        <a href="/<?= $key ?>/"><?= $this->lang->line('header_language_'.$key) ?></a>
+                                                                    </li>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                        </ul>
+                                                    </li>
                                                     <?php if (empty($page)): ?>
                                                         <li class="active"><a
                                                                     href="/<?= $lang ?>"><?= $this->lang->line('header_menu_home') ?></a>
@@ -159,10 +176,10 @@
                                                     <?php endif; ?>
 
                                                     <?php if (in_array($page, $services_urls)): ?>
-                                                <li class="sub-menu sub-menu-1 active"><a
-                                                        href="/"><?= $this->lang->line('header_menu_services') ?>
-                                                    <em></em></a>
-                                                <?php else: ?>
+                                                    <li class="sub-menu sub-menu-1 active">
+                                                        <a href="/"><?= $this->lang->line('header_menu_services') ?>
+                                                        <em></em></a>
+                                                    <?php else: ?>
                                                     <li class="sub-menu sub-menu-1"><a
                                                                 href="/"><?= $this->lang->line('header_menu_services') ?>
                                                             <em></em></a>
@@ -213,6 +230,7 @@
                     <?= $this->lang->line('header_call') ?></div>
                 <div class="txt2">1 800 123 4567</div>
             </div>
+
             <div id="camera_wrap">
                 <div data-src="/assets/frontend/images/slide01.jpg">
                     <div class="camera_caption fadeIn">

@@ -12,3 +12,8 @@ $lang['header_menu_contacts'] = "Контакты";
 $lang['header_call'] = "Закажите TAXI сейчас! Вызов:";
 $lang['header_menu_title1'] = "Мы отвезем вас туда";
 $lang['header_menu_title2'] = "где вам нужно.";
+$lang['header_language'] = "Выберите Язык";
+$lang['header_language_en'] = "Английский";
+$lang['header_language_ru'] = "Русский";
+$lang['meta_description_content'] = 'Минивен, Заказ минивен, Аэропорт минивен, большой минивен, минивен в городе, позвонить минивен, отправить письмо минивен';
+

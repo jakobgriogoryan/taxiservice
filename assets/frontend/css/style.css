@@ -358,7 +358,12 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
 .page-404 .txt2{font-family:'Asap'; font-weight:400; font-size:70px; color:#2f2f2f; line-height:70px; }
 
 
-
+input.error{
+	border: 1px solid red !important;
+}
+textarea.error{
+	border: 1px solid red !important;
+}
 
 
 /*----- media queries ------*/

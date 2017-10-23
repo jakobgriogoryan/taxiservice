@@ -22,7 +22,7 @@ class Auth extends CI_Controller
                 'login' => $this->input->post('login'),
                 'password' => sha1(md5($this->input->post('password')))
             );
-            $user_data = $this->admins_model->get_data(['id', 'name', 'surname', 'login', 'email'], $data)->row();
+            $user_data = $this->admins_model->get_data(['id', 'name', 'surname', 'login', 'email','role_id'], $data)->row();
             if ($user_data) {
                 $newdata = array(
                     'id' => $user_data->id,
@@ -30,6 +30,7 @@ class Auth extends CI_Controller
                     'surname' => $user_data->surname,
                     'email' => $user_data->email,
                     'login' => $user_data->login,
+                    'role_id' => $user_data->role_id
                 );
                 $this->session->set_userdata($newdata);
                 $this->load->helper('url');

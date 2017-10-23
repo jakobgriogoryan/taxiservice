@@ -22,7 +22,7 @@ class Car_type_model extends CI_Model
         $data = $this->getById($id);
         $car_types = '';
         foreach ($data as $car_type) {
-            $car_types = " isotope-filter".$car_type->order_type_id;
+            $car_types .= " isotope-filter".$car_type->order_type_id;
         }
 
         return $car_types;

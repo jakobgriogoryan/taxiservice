@@ -65,7 +65,10 @@
                                     <td><?= $status[$order->status] ?></td>
                                     <td><?= $order->create_at ?></td>
                                     <td>
-
+                                        <?php if($order->status == 1): ?>
+                                        <a href="/admin/orders/order/<?=$order->id ?>/2" onclick="return confirm('Вы уверены?')" class="btn btn-info">Потвердить</a>
+                                        <a href="/admin/orders/order/<?=$order->id ?>/3" onclick="return confirm('Вы уверены?')" class="btn btn-danger">Отклонить</a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

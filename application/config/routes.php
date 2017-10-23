@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['404_override'] = 'my404';
 $route['(\w{2})/cars'] = 'home/cars';
+$route['(\w{2})/cars/images'] = 'home/car_images';
 $route['(\w{2})/booking'] = 'home/booking';
 $route['(\w{2})/contacts'] = 'home/contacts';
 $route['(\w{2})/fromAirport'] = 'home/services/fromAirport';

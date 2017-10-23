@@ -2,48 +2,56 @@
     <div class="container">
         <div class="row">
             <div class="span12">
-                <h1><?= $service[0]['name_' . $lang] ?></h1>
+                <h1>
+                    <?php if($lang == 'ru'): ?>
+                    <?= $service[0]['name'] ?>
+                    <?php else: ?>
+                    <?= $service[0]['name_' . $lang] ?>
+                    <?php endif; ?>
+                </h1>
                 <div class="thumb4">
                     <div class="thumbnail clearfix">
                         <figure class="img-polaroid"><img src="/assets/images/services/<?= $service[0]['image'] ?>"
                                                           alt=""></figure>
                         <div class="caption">
                             <p>
-                                <?= $service[0]['description_' . $lang] ?>
+                                <?php if($lang == 'ru'): ?>
+                                    <?= $service[0]['description'] ?>
+                                <?php else: ?>
+                                    <?= $service[0]['description_' . $lang] ?>
+                                <?php endif; ?>
                             </p>
                         </div>
                     </div>
                 </div>
                 <h2><?= $this->lang->line('header_menu_cars') ?></h2>
 
+                <ul class="thumbnails" id="isotope-items">
+                    <?php foreach ($cars as $car): ?>
 
-                <div class="row thumbnails" id="isotope-items"
-                ">
-                <?php foreach ($cars as $car): ?>
-
-                    <?php
-                    $image = $this->images_model->getMainImage($car->id);
-                    $types = $this->car_type_model->getTypesByString($car->id);
-                    ?>
-                    <div class="span4 isotope-element<?= $types ?>">
-                        <div class="thumb5">
-                            <div class="thumbnail clearfix">
-                                <a href="#" class="clearfix">
-                                    <figure class=""><img src="/assets/images/cars/<?= $image[0]->name ?>"
-                                                          alt="">
-                                    </figure>
-                                    <div class="caption">
-                                        <div class="txt1"><?= $car->name ?></div>
-                                        <div class="txt2"><?= $car->description ?></div>
-                                        <div class="txt3">more</div>
-                                    </div>
-                                </a>
+                        <?php
+                        $image = $this->images_model->getMainImage($car->id);
+                        ?>
+                        <li class="span4">
+                            <div class="thumb-isotope">
+                                <div class="thumbnail clearfix">
+                                    <a data-id="<?=$car->id ?>" data-lang="<?=$lang ?>" class="car-info" href="javascript:;">
+                                        <figure>
+                                            <img src="/assets/images/cars/<?= $image[0]->name ?>" alt=""><em></em>
+                                        </figure>
+                                        <div class="caption">
+                                            <?php if($lang == 'ru'): ?>
+                                            <?= $car->name ?>
+                                            <?php else: ?>
+                                            <?= $car->name_en ?>
+                                            <?php endif; ?>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                <?php endforeach ?>
-
-            </div>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
         </div>
 
     </div>

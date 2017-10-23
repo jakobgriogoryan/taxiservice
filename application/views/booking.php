@@ -9,7 +9,7 @@
                 <div id="fields-book">
                     <!--                    <form id="ajax-book-form" class="form-horizontal" action="javascript:alert('success!');">-->
                     <form id="ajax-book-form" class="form-horizontal" action="booking" method="post">
-
+                        <input type="hidden" name="lang" value="<?=$lang ?>">
                         <?php echo validation_errors(); ?>
                         <div class="row">
                             <div class="span4">
@@ -24,16 +24,30 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="span4">
                                 <div class="control-group">
                                     <label class="control-label"
-                                           for="inputName"><?= $this->lang->line('order_user_address') ?>*:</label>
+                                           for="inputName"><?= $this->lang->line('order_user_address') ?>*</label>
                                     <div class="controls">
                                         <input class="span4" type="text" id="inputName" name="location"
-                                               placeholder="<?= $this->lang->line('order_user_address') ?>*:">
+                                               placeholder="<?= $this->lang->line('order_user_address') ?>*">
                                     </div>
                                 </div>
                             </div>
+                            <div class="span4">
+                                <div class="control-group">
+                                    <label class="control-label"
+                                           for="inputName"><?= $this->lang->line('order_user_destination') ?>*</label>
+                                    <div class="controls">
+                                        <input class="span4" type="text" id="inputName" name="where_to"
+                                               placeholder="<?= $this->lang->line('order_user_destination') ?>*">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="span4">
                                 <div class="control-group">
                                     <label class="control-label"
@@ -44,25 +58,13 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="span4">
                                 <div class="control-group">
                                     <label class="control-label"
-                                           for="inputName"><?= $this->lang->line('order_user_destination') ?>*:</label>
-                                    <div class="controls">
-                                        <input class="span4" type="text" id="inputName" name="where_to"
-                                               placeholder="<?= $this->lang->line('order_user_destination') ?>*:">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="span4">
-                                <div class="control-group">
-                                    <label class="control-label"
-                                           for="inputPhone"><?= $this->lang->line('order_user_phone') ?>*:</label>
+                                           for="inputPhone"><?= $this->lang->line('order_user_phone') ?>*</label>
                                     <div class="controls">
                                         <input class="span4" type="text" id="inputPhone" name="phone"
-                                               placeholder="<?= $this->lang->line('order_user_phone') ?>*:">
+                                               placeholder="<?= $this->lang->line('order_user_phone') ?>*">
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +77,7 @@
                                     <label class="control-label"
                                            for="inputNumber"><?= $this->lang->line('order_user_email') ?>:</label>
                                     <div class="controls">
-                                        <input class="span2" type="text" id="inputNumber" name="email"
+                                        <input class="span4" type="text" id="inputNumber" name="email"
                                                placeholder="<?= $this->lang->line('order_user_email') ?>">
                                     </div>
                                 </div>
@@ -85,10 +87,9 @@
                                 <div class="form-group">
                                     <label class="control-label "><?= $this->lang->line('order_user_datetime') ?>
                                         :</label>
-                                    <div class="col-md-3">
-                                        <input class="form-control form-control-inline input-medium date-picker"
-                                               size="16" type="text" name="datetime"
-                                               PLACEHOLDER="<?= $this->lang->line('order_user_datetime') ?>"/>
+                                    <div class="controls">
+                                        <input class=" span4 form-control date-picker" type="text" name="datetime"
+                                               placeholder="<?= $this->lang->line('order_user_datetime') ?>"/>
                                     </div>
                                 </div>
                             </div>

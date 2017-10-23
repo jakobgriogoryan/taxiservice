@@ -21,6 +21,11 @@ class Cars extends CI_Controller
         if (!isset($session['email'])) {
             redirect(base_url() . 'admin/auth');
         }
+        $this->load->model('roles_model');
+
+        if($session['role_id'] != $this->roles_model->ADMIN && $session['role_id'] != $this->roles_model->SUPERADMIN){
+            redirect(base_url() . 'admin');
+        }
     }
 
     public function index()
@@ -102,8 +107,8 @@ class Cars extends CI_Controller
             }
 
         }
-        $this->load->model('order_type_model');
-        $car_types = $this->order_type_model->selectAll();
+        $this->load->model('Order_type_model');
+        $car_types = $this->Order_type_model->selectAll();
         $this->load->template('admin/cars/create', ['passengers_count' => $this->passengers_count, 'car_types' => $car_types]);
 
     }
@@ -112,7 +117,7 @@ class Cars extends CI_Controller
     {
         $this->load->model('cars_model');
         $this->load->model('images_model');
-        $this->load->model('order_type_model');
+        $this->load->model('Order_type_model');
         $this->load->model('car_type_model');
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules('name', 'Заполните Имя', 'required');
@@ -189,7 +194,7 @@ class Cars extends CI_Controller
         }
         $car = $this->cars_model->getById($id);
         $images = $this->images_model->getById($id);
-        $all_car_types = $this->order_type_model->selectAll();
+        $all_car_types = $this->Order_type_model->selectAll();
         $car_types_data = $this->car_type_model->getById($id);
         $car_types = array();
         foreach ($car_types_data as $car_type) {

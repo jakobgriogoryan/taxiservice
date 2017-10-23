@@ -25,7 +25,7 @@
                             <li class="span4 isotope-element <?= $types ?>">
                                 <div class="thumb-isotope">
                                     <div class="thumbnail clearfix">
-                                        <a href="https://demo.gridgum.com/templates/bootstrap-templates/22367/images/blank.png">
+                                        <a class="car-info" data-id="<?=$car->id; ?>" data-lang="<?=$lang ?>" href="javascript:;">
                                             <figure>
                                                 <img src="/assets/images/cars/<?= $image[0]->name ?>" alt=""><em></em>
                                             </figure>

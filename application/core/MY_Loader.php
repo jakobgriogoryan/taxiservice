@@ -5,15 +5,27 @@ class MY_Loader extends CI_Loader
 
     public function template($template_name, $vars = array(), $return = FALSE, $error404 = false)
     {
+
         $ci =& get_instance();
         $page = $ci->uri->segment(0);
         $language =& $ci->config->config['language'];
         $lang_prefix = $ci->config->config['language_abbr'];
+        $languages = $ci->config->config['lang_uri_abbr'];
+
         $template_path = 'templates';
         if ($ci->uri->segment(1) == 'admin') {
             $page = $ci->uri->segment(2);
             $template_path = 'templates/backend';
             $language = '';
+            $ci->load->model('roles_model');
+            $ci->load->model('orders_model');
+            $ci->load->model('contacts_model');
+            $unwatched_orders = $ci->orders_model->unwatched_orders();
+            $unwatched_contacts = $ci->contacts_model->unwatched_contacts();
+            $vars['SUPERADMIN'] = $ci->roles_model->SUPERADMIN;
+            $vars['ADMIN'] = $ci->roles_model->ADMIN;
+            $vars['unwatched_orders'] = $unwatched_orders;
+            $vars['unwatched_contacts'] = $unwatched_contacts;
         }
         if ($return) {
             $content = $this->view($template_path . '/header', $vars, $return);
@@ -22,6 +34,7 @@ class MY_Loader extends CI_Loader
             return $content;
         } else {
             if (!empty($language)) {
+
                 $ci->lang->load('header_lang', $language);
                 $ci->lang->load('main_lang', $language);
                 if (!empty($page)) {
@@ -29,11 +42,16 @@ class MY_Loader extends CI_Loader
                 } else {
                     $vars['title'] = $ci->lang->line('header_home_title');
                 }
+                $vars['meta_description'] = $ci->lang->line('meta_description_content');
                 $vars['lang'] = $lang_prefix;
+                $vars['languages'] = $languages;
+                $vars['booking_success'] = $ci->input->get('booking');
+                $vars['contact_success'] = $ci->input->get('contact');
 
-                $ci->load->model('order_type_model');
-                $services_urls = $ci->order_type_model->urls;
-                $order_types_data = $ci->order_type_model->selectAll();
+
+                $ci->load->model('Order_type_model');
+                $services_urls = $ci->Order_type_model->urls;
+                $order_types_data = $ci->Order_type_model->selectAll();
                 $order_types = array();
                 $prefix = '';
                 if ($lang_prefix != 'ru') {

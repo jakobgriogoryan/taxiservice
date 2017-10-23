@@ -14,8 +14,9 @@ class Contacts extends CI_Controller
 
     public function index(){
 
-        $this->load->model('message_model');
-        $contacts= $this->message_model->index();
+        $this->load->model('contacts_model');
+        $this->contacts_model->watchAll();
+        $contacts= $this->contacts_model->selectAll();
         $this->load->template('admin/user_message/index',['contacts' => $contacts]);
     }
 
@@ -25,4 +26,5 @@ class Contacts extends CI_Controller
         $this->message_model->delete($id);
         echo json_encode(array('success' => true));
     }
+
 }

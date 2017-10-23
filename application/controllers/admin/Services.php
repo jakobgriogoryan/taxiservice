@@ -10,19 +10,23 @@ class Services extends CI_Controller
         if (!isset($session['email'])) {
             redirect(base_url() . 'admin/auth');
         }
-        $this->load->model('order_type_model');
+        $this->load->model('Order_type_model');
+        $this->load->model('roles_model');
 
+        if($session['role_id'] != $this->roles_model->ADMIN && $session['role_id'] != $this->roles_model->SUPERADMIN){
+            redirect(base_url() . 'admin');
+        }
     }
 
     public function index()
     {
-        $services = $this->order_type_model->selectAll();
+        $services = $this->Order_type_model->selectAll();
         $this->load->template('admin/services/index', ['services' => $services]);
     }
 
     public function edit($id)
     {
-        $service = $this->order_type_model->getById($id);
+        $service = $this->Order_type_model->getById($id);
         if ($this->input->method() == 'post') {
             $this->form_validation->set_rules('name', 'Заполните Имя (По Русский)', 'required');
             $this->form_validation->set_rules('name_en', 'Заполните Имя (English', 'required');
@@ -60,7 +64,7 @@ class Services extends CI_Controller
                     $data['image'] = $this->upload->data('file_name');
 
                 }
-                $this->order_type_model->edit($data, $id);
+                $this->Order_type_model->edit($data, $id);
                 redirect('/admin/services');
             }
         }

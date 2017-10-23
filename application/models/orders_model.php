@@ -15,4 +15,20 @@ class Orders_model extends CI_Model
         return $query->result();
     }
 
+    public function unwatched_orders(){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('read',0);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function updateStatus($id, $status){
+        $this->db->where('id',$id);
+        return $this->db->update($this->table,array(
+            'status' => $status,
+            'read' => 1
+        ));
+    }
+
 }

@@ -5,19 +5,44 @@
                 <div class="bot1_inner clearfix">
                     <div class="menu_bot">
                         <ul id="menu_bot" class="clearfix">
-                            <li><a href="home">Home</a></li>
-                            <li><a href="cars">Our cars</a></li>
-                            <li><a href="booking">Book online</a></li>
-                            <li><a href="services">Services</a></li>
-                            <li><a href="contacts">Contacts</a></li>
+                            <?php if (empty($page)): ?>
+                                <li class="active"><a
+                                            href="/<?= $lang ?>"><?= $this->lang->line('header_menu_home') ?></a>
+                                </li>
+                            <?php else: ?>
+                                <li><a href="/"><?= $this->lang->line('header_menu_home') ?></a>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php if ($page === 'cars'): ?>
+                                <li class="active"><a
+                                            href="/<?= $lang ?>/cars"><?= $this->lang->line('header_menu_cars') ?></a>
+                                </li>
+                            <?php else: ?>
+                                <li>
+                                    <a href="/<?= $lang ?>/cars"><?= $this->lang->line('header_menu_cars') ?></a>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php if ($page === 'booking'): ?>
+                                <li class="active"><a
+                                            href="/<?= $lang ?>/booking"><?= $this->lang->line('header_menu_booking') ?></a>
+                                </li>
+                            <?php else: ?>
+                                <li>
+                                    <a href="/<?= $lang ?>/booking"><?= $this->lang->line('header_menu_booking') ?></a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($page === 'contacts'): ?>
+                                <li class="active"><a
+                                            href="/<?= $lang ?>/contacts"><?= $this->lang->line('header_menu_contacts') ?></a>
+                                </li>
+                            <?php else: ?>
+                                <li>
+                                    <a href="/<?= $lang ?>/contacts"><?= $this->lang->line('header_menu_contacts') ?></a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
-                    </div>
-                    <div class="search-form-wrapper clearfix">
-                        <form id="search-form" method="GET" accept-charset="utf-8" class="navbar-form">
-                            <input type="text" name="s" value='Search' onBlur="if(this.value=='') this.value='Search'"
-                                   onFocus="if(this.value =='Search' ) this.value=''">
-                            <a href="#" onClick="document.getElementById('search-form').submit()"></a>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -30,18 +55,10 @@
             <div class="span12">
                 <div class="bot2_inner clearfix">
                     <footer>
-                        <div class="copyright">Copyright © 2016. All rights reserved.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a
-                                    href="#">Privacy policy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Mail
-                                Us</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Site map</a>
+                        <div class="copyright">Copyright © 2017 "Dream Worker" Company. All rights reserved.&nbsp;
                         </div>
                     </footer>
-                    <div class="social_wrapper">
-                        <ul class="social clearfix">
-                            <li><a href="#"><img src="/assets/frontend/images/social_ic1.png"></a></li>
-                            <li><a href="#"><img src="/assets/frontend/images/social_ic2.png"></a></li>
-                            <li><a href="#"><img src="/assets/frontend/images/social_ic3.png"></a></li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -49,7 +66,84 @@
 </div>
 
 </div>
+<script src="<?= base_url() ?>/assets/frontend/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+
 <script type="text/javascript" src="/assets/frontend/js/bootstrap.js"></script>
+<script type="text/javascript" src="/assets/frontend/js/main.js"></script>
+<script type="text/javascript" src="/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<!-- carInfoModal -->
+<div id="carInfoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<?php if($booking_success == 'true'): ?>
+<!-- booking success modal -->
+<div id="bookingSuccessModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><?=$this->lang->line('booking_modal_title') ?></h4>
+            </div>
+            <div class="modal-body" style="overflow-x:hidden">
+                <p><?=$this->lang->line('booking_modal_text') ?></p>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#bookingSuccessModal").show();
+        $("#bookingSuccessModal").modal('show');
+    })
+</script>
+<?php endif; ?>
+<?php if($contact_success == 'true'): ?>
+    <!-- booking success modal -->
+    <div id="contactSuccessModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3></h3>
+                </div>
+                <div class="modal-body" style="overflow-x:hidden">
+                    <p><?=$this->lang->line('contact_modal_text') ?></p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#contactSuccessModal").show();
+            $("#contactSuccessModal").modal('show');
+        })
+    </script>
+<?php endif; ?>
 </body>
 
 <!-- Mirrored from demo.gridgum.com/templates/bootstrap-templates/22367/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 08:26:38 GMT -->

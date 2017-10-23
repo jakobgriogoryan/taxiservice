@@ -44,7 +44,6 @@
         // Listen for touch events on the body and check if they
         // originated in #gallerySlider img - the images in the slider.
         $('body').on('touchstart', '#gallerySlider img', function(e){
-
             var touch = e.originalEvent,
                 startX = touch.changedTouches[0].pageX;
 
@@ -77,13 +76,13 @@
 
         items.on('click', function(e){
             e.preventDefault();
-
+            return false;
             // Find the position of this image
             // in the collection
 
             index = items.index(this);
-            showOverlay(index);
-            showImage(index);
+            // showOverlay(index);
+            // showImage(index);
 
             // Preload the next image
             preload(index+1);
